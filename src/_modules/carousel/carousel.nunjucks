@@ -1,0 +1,85 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {% set _class = spec.class or 'default' %}
+  {% set _id = spec.id or '' %}
+  {% set _type = spec.type or 'default' %}
+
+  {% set _imgs = spec.imgs or[] %}
+  {% set _mdImgs = spec.mdImgs or[] %}
+  {% set _lgImgs = spec.lgImgs or[] %}
+
+  {# Mobile #}
+  <div class="carousel-wrap {{_type}}-type-carousel">
+    <div class="carousel {{_class}} {% if _mdImgs.length %} visible-xs-block {% endif %}" id="{{_id}}">
+
+      {% for img in _imgs %}
+        <div class="slide">
+
+          {# Overlay #}
+          {% if img.overlay %}
+            <div class="overlay">
+              <div class="title">
+                <a href="{{img.overlay.cta.link}}" target="_blank">{{img.overlay.title}}</a>
+              </div>
+              <div class="body hidden-xs">
+                <p>{{img.overlay.body}}</p>
+              </div>
+              <div class="carousel-btn">
+                <a class="btn btn-primary hidden-xs" href="{{img.overlay.cta.link}}">
+                  {{img.overlay.cta.text}}
+                </a>
+              </div>
+            </div>
+          {% endif %}
+
+          {# Full height images #}
+          {% if _type == 'background' %}
+            <div class="full-height background-slide-img" style="background-image: url({{img.src}})"></div>
+          {% else %}
+            {# Normal images #}
+            <img src="{{img.src}}" alt="{{img.alt}}" class="img-responsive"/>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </div>
+
+    {# Tablet & Desktop #}
+    {% if _mdImgs.length %}
+      <div class="carousel {{_class}}
+        {% if _lgImgs.length %}
+          visible-sm-block visible-md-block
+        {% endif %}" id="{{_id}}">
+        {% for img in _mdImgs %}
+          <div>
+            <img src="{{img.src}}" alt="{{img.alt}}" class="img-responsive"/>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {# Large Desktop #}
+    {% if _mdImgs.length %}
+      <div class="carousel {{_class}} visible-lg-block" id="{{_id}}">
+        {% for img in _lgImgs %}
+          <div>
+            <img src="{{img.src}}" alt="{{img.alt}}" class="img-responsive"/>
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+
+    {% if _class.indexOf("thumbnails") != -1 %}
+
+      <div class="thumbnails-wrap" id="{{_id + '-nav'}}">
+        {% for img in _imgs %}
+          <div class="slider-thumbnail" style="background-image: url({{img.src}})">
+            {# <img src="{{img.src}}" alt="{{img.alt}}"/> #}
+          </div>
+        {% endfor %}
+      </div>
+
+    {% endif %}
+  </div>
+
+{% endmacro %}

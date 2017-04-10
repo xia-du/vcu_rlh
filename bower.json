@@ -1,0 +1,21 @@
+{
+  "name": "vcu-rlh-website",
+  "version": "0.0.1",
+  "authors": [
+    "Xia Du <xiadu.dev@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "slick-carousel": "^1.6.0",
+    "animate.css": "^3.5.2",
+    "wow": "wow.js#^1.1.2",
+    "bootstrap-sass": "^3.3.7"
+  }
+}

@@ -1,0 +1,139 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {% set _class = spec.class or '' %}
+
+  {% set items = [
+    {
+      name: 'Maintenance Request',
+      id: 'maintenance',
+      img: '/images/help_center/maintenance.svg',
+      url: 'help/#maintenance'
+    }, {
+      name: 'Laundry Check',
+      id: 'laundry',
+      img: '/images/help_center/laundry.svg',
+      url: 'help/#laundry'
+    }, {
+      name: 'Internet',
+      id: 'internet',
+      img: '/images/help_center/internet.svg',
+      url: 'help/#internet'
+    }, {
+      name: 'Stream TV',
+      id: 'tv',
+      img: '/images/help_center/tv.svg',
+      url: 'help/#tv'
+    }, {
+      name: 'Mail',
+      id: 'mail',
+      img: '/images/help_center/mail.svg',
+      url: 'help/#mail'
+    }, {
+      name: 'Sustainability',
+      id: 'sustainability',
+      img: '/images/help_center/sustainability.svg',
+      url: 'help/#sustainability'
+    }, {
+      name: 'Pest Control',
+      id: 'pest',
+      img: '/images/help_center/pest.svg',
+      url: 'help/#pest'
+    }, {
+      name: 'Locked Out',
+      id: 'keys',
+      img: '/images/help_center/keys.svg',
+      url: 'help/#keys'
+    }, {
+      name: 'Heat & AC',
+      id: 'heat_ac',
+      img: '/images/help_center/heat_ac.svg',
+      url: 'help/#heat_ac'
+    }, {
+      name: 'Fire Safety',
+      id: 'fire_safety',
+      img: '/images/help_center/fire_safety.svg',
+      url: 'help/#fire_safety'
+    }, {
+      name: 'Move In/Out',
+      id: 'move',
+      img: '/images/help_center/move.svg',
+      url: 'help/#move'
+    }, {
+      name: 'Hall Schedule',
+      id: 'schedule',
+      img: '/images/help_center/schedule.svg',
+      url: 'help/#schedule'
+    }, {
+      name: 'Roommate Tips',
+      id: 'roommate',
+      img: '/images/help_center/roommate.svg',
+      url: 'help/#roommate'
+    }, {
+      name: 'Room Change',
+      id: 'room_change',
+      img: '/images/help_center/room_change.svg',
+      url: 'help/#room_change'
+    }, {
+      name: 'Transfering & Graduating',
+      id: 'graduating',
+      img: '/images/help_center/graduating.svg',
+      url: 'help/#graduating'
+    }, {
+      name: 'Resources',
+      id: 'resources',
+      img: '/images/help_center/resources.svg',
+      url: 'help/#resources',
+      hide: 'xs'
+    }
+  ] %}
+
+  <div class="help-center-wrap">
+    <div class="help-center-mask"></div>
+
+    <section class="section-dark {{_class}}" id="help_center">
+      <div class="container">
+        <div class="title">
+          <h2>HELP CENTER</h2>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              {% for item in items %}
+              {% set hide = 'hidden-' + item.hide or ''%}
+                <div class="icon-group col-xs-4 col-sm-3 col-md-3 {{hide}}" id="{{item.id}}" data-target="{{item.id}}-modal">
+                  <div class="icon">
+                    <img class="svg" src="{{item.img}}" alt="{{item.name}}">
+                  </div>
+                  <div class="icon-label">
+                    <span>{{item.name}}</span>
+                  </div>
+                </div>
+
+                <div class="help-center-modal" id="{{item.id}}-modal">
+                  {# Close Button #}
+                  <div class="close-btn">
+                    <i class="glyphicon glyphicon-remove"></i>
+                  </div>
+                  {# Modal Content #}
+                  <div class="container-fluid">
+                    <div class="title">
+                      <h3>{{item.name}}</h3>
+                    </div>
+                    <div class="body">
+                      {% include "_helpcenter/" + item.id + ".html" %}
+                    </div>
+                    <div class="footer">
+                      <a class="btn btn-primary" href="{{item.url}}" target="_blank">Still Have Questions?</a>
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+{% endmacro %}

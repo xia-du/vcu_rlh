@@ -1,0 +1,95 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {% set _src = spec.src or 'https://source.unsplash.com/random' %}
+  {% set _alt = spec.alt or '' %}
+  {% set _class = spec.class or '' %}
+  {% set _id = spec.id or '' %}
+
+  {% set _caption = spec.caption or '' %}
+
+  {% set _overlayCta = spec.overlayCta or false %}
+  {% set _overlayCtaText = spec.overlayCtaText or '' %}
+  {% set _overlayCtaLink = spec.overlayCtaLink or '' %}
+
+  {% set _overlayCaption = spec.overlayCaption or false %}
+  {% set _overlayCaptionClass = '' %}
+
+  {% if _overlayCaption %}
+    {% set _overlayCaptionClass = 'overlay-caption' %}
+  {% endif %}
+
+  {% set _overlayHoverable = spec.overlayHoverable or false %}
+  {% set _overlayHoverableClass = '' %}
+
+  {% if _overlayHoverable %}
+    {% set _overlayHoverableClass = 'overlay-hoverable' %}
+  {% endif %}
+
+  {% set _overlayDescription = spec.overlayDescription or '' %}
+
+  {% set _overlayText = spec.overlayText or '' %}
+  {% set _overlayClass = spec.overlayClass or '' %}
+  {% set _overlayFont = spec.overlayFont or '' %}
+  {% set _overlayColor = spec.overlayColor or '' %}
+  {% set _overlayStyle = spec.overlayStyle or '' %}
+
+  {% set _overlayColorStyle = '' %}
+
+  {% if _overlayColor %}
+    {% set _overlayColorStyle = 'background-color: ' + _overlayColor + ';' %}
+  {% endif %}
+
+  {% set _overlayAlign = spec.overlayAlign or '' %}
+  {% set _overlayAlignStyle = '' %}
+
+  {% if _overlayAlign %}
+    {% set _overlayAlignStyle = 'text-align: ' + _overlayAlign %}
+  {% endif %}
+
+  {% set _filter = spec.filter or '' %}
+  {% if _filter %}
+    {% set filterStyles = 'style="-webkit-filter: ' + _filter + '; filter: ' + _filter + ';"' %}
+  {% endif %}
+
+  {% set _type = spec.type or 'default' %}
+
+  <figure class="{{_type}}-type-img">
+
+    <div class="img-wrap">
+
+      {% if _overlayText %}
+        <div class="img-overlay {{_overlayClass}} {{_overlayCaptionClass}} {{_overlayHoverableClass}}" style="{{_overlayColorStyle}} {{_overlayStyle}};">
+          <div class="overlay-text">
+            <p style="{{_overlayAlignStyle}}; {{_overlayFont}}">{{_overlayText}}</p>
+          </div>
+          {% if _overlayCaption %}
+            <div class="overlay-description hidden-xs">
+              <p>{{_overlayDescription}}</p>
+            </div>
+          {% endif %}
+          {% if _overlayCta %}
+            <div class="overlay-cta">
+              <a href="{{_overlayCtaLink}}" class="btn btn-primary">{{_overlayCtaText}}</a>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if _type == 'background' %}
+        <div class="full-height-img" style="background-image: url({{_src}})"></div>
+      {% else %}
+        <img src="{{_src}}" alt="{{_alt}}" class="{{_class}}" id="{{_id}}" {{filterStyles}}/>
+      {% endif %}
+
+    </div>
+
+    {% if _caption %}
+      <figcaption>
+        <i>{{_caption}}</i>
+      </figcaption>
+    {% endif %}
+
+  </figure>
+
+{% endmacro %}

@@ -1,0 +1,99 @@
+// accordion styles
+.accordion {
+  .accordion-item {
+    hr {
+      margin: 10px 0;
+    }
+    .accordion-heading {
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        a {
+          color: $brand-secondary;
+        }
+      }
+
+      h4 {
+        font-family: $font-family-sans-serif;
+
+        margin: 0;
+        padding: 10px 0;
+
+        a {
+          line-height: 1.5em;
+
+          text-decoration: none;
+          text-transform: capitalize;
+
+          color: $gray-dark;
+        }
+      }
+    }
+
+    &.in {
+      .accordion-heading {
+        h4 {
+          color: $brand-primary;
+        }
+
+        a {
+          color: $brand-primary;
+        }
+      }
+      .accordion-collapse-icon {
+        .toggle-btn {
+          color: $brand-primary;
+          i {
+            transform: rotateZ(180deg);
+          }
+        }
+      }
+    }
+
+    .accordion-collapse-icon {
+      .toggle-btn {
+        font-size: 32px;
+
+        position: relative;
+        right: 10px;
+
+        color: $gray-light;
+        i {
+          float: right;
+          margin-top: 8px;
+          transition: all $speed-fast ease;
+        }
+      }
+    }
+
+    .accordion-collapse {
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+}
+@media (min-width: $screen-sm) {
+  .accordion {
+    .accordion-item {
+      hr {
+        border: none;
+      }
+      .accordion-heading {
+        h4 {
+          margin: 0;
+          padding: 10px 0;
+          a {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+}
+@media (min-width: $screen-lg) {
+}

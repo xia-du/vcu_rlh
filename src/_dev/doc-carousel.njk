@@ -1,0 +1,437 @@
+{# Description #}
+
+<p>
+  See
+  {{link.content({
+    href: 'http://kenwheeler.github.io/slick/',
+    text: 'Slick Carousel'
+  })}}
+  for more information.
+</p>
+
+{# Content #}
+{# Default carousel #}
+
+{% set defaultCarousel =
+  carousel.content({
+    imgs: [{
+      src: 'https://unsplash.it/1600/900?image=0',
+      alt: 'mobile slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=1',
+      alt: 'mobile slide 2'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=2',
+      alt:'mobile slide 3'
+    }]
+  })
+%}
+{% set defaultCarouselCode =
+"carousel.content({
+  imgs: [{
+    src: 'https://unsplash.it/1600/900?image=0',
+    alt: 'mobile slide 1'
+  }, {
+    src: 'https://unsplash.it/1600/900?image=1',
+    alt: 'mobile slide 2'
+  }, {
+    src: 'https://unsplash.it/1600/900?image=2',
+    alt:'mobile slide 3'
+  }]
+})"
+%}
+
+<h3>Default carousel</h3>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+    {{ defaultCarousel }}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{{ defaultCarouselCode }}</pre>
+  </div>
+</div>
+
+{# Default carousel with border #}
+
+{% set defaultCarouselWithBorder =
+  carousel.content({
+    class: 'default with-border',
+    imgs: [{
+      src: 'https://unsplash.it/1600/900?image=0',
+      alt: 'mobile slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=1',
+      alt: 'mobile slide 2'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=2',
+      alt:'mobile slide 3'
+    }]
+  })
+%}
+{% set defaultCarouselCodeWithBorder =
+"carousel.content({
+  class: 'default with-border',
+  imgs: [{
+    src: 'https://unsplash.it/1600/900?image=0',
+    alt: 'mobile slide 1'
+  }, {
+    src: 'https://unsplash.it/1600/900?image=1',
+    alt: 'mobile slide 2'
+  }, {
+    src: 'https://unsplash.it/1600/900?image=2',
+    alt:'mobile slide 3'
+  }]
+})"
+%}
+
+<h3>Default carousel with border</h3>
+<p>
+  <code>{ class: 'default with-border' }</code> add borders for design purposes.
+</p>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+    {{ defaultCarouselWithBorder }}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{{ defaultCarouselCodeWithBorder }}</pre>
+  </div>
+</div>
+
+{# Carousel with caption and/or CTA #}
+
+{% set defaultCarouselWithCaptionOrCTA =
+  carousel.content({
+    imgs: [{
+      src: 'https://unsplash.it/1600/1200?image=0',
+      alt: 'mobile slide 1',
+      overlay: {
+        title: 'Example Title 1',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+        cta: {
+          text: 'Learn More',
+          link: '#'
+        }
+      }
+    }, {
+      src: 'https://unsplash.it/1600/1200?image=1',
+      alt: 'mobile slide 2',
+      overlay: {
+        title: 'Example Title 2 is longer than the other ones',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+        cta: {
+          text: 'Learn More',
+          link: '#'
+        }
+      }
+    }, {
+      src: 'https://unsplash.it/1600/1200?image=2',
+      alt:'mobile slide 3',
+      overlay: {
+        title: 'Example Title 3',
+        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+        cta: {
+          text: 'Learn More',
+          link: '#'
+        }
+      }
+    }]
+  })
+%}
+{% set defaultCarouselCodeWithCaptionOrCTA =
+"carousel.content({
+  imgs: [{
+    src: 'https://unsplash.it/1600/1200?image=0',
+    alt: 'mobile slide 1',
+    overlay: {
+      title: 'Example Title 1',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+      cta: {
+        text: 'Learn More',
+        link: '#'
+      }
+    }
+  }, {
+    src: 'https://unsplash.it/1600/1200?image=1',
+    alt: 'mobile slide 2',
+    overlay: {
+      title: 'Example Title 2 is longer than the other ones',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+      cta: {
+        text: 'Learn More',
+        link: '#'
+      }
+    }
+  }, {
+    src: 'https://unsplash.it/1600/1200?image=2',
+    alt:'mobile slide 3',
+    overlay: {
+      title: 'Example Title 3',
+      body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+      cta: {
+        text: 'Learn More',
+        link: '#'
+      }
+    }
+  }]
+})"
+%}
+
+<h3>Default carousel with overlay</h3>
+<pre>
+
+  { overlay: {
+      title: 'title',
+      body: 'body text',
+      cta: {
+        text: 'cta-text',
+        link: 'cta-link'
+      }
+    }
+  }
+
+</pre>
+<br>
+<p>
+  Add overlay content. CTA button and description text only show on desktop. (>768px)
+</p>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+    {{ defaultCarouselWithCaptionOrCTA }}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{{ defaultCarouselCodeWithCaptionOrCTA }}</pre>
+  </div>
+</div>
+
+
+{# Responsive #}
+
+{% set carouselResponsive =
+  carousel.content({
+    imgs: [{
+      src: 'https://unsplash.it/400/300?image=0',
+      alt: 'mobile slide 1'
+    }, {
+      src: 'https://unsplash.it/400/300?image=1',
+      alt: 'mobile slide 2'
+    }, {
+      src: 'https://unsplash.it/400/300?image=2',
+      alt: 'mobile slide 3'
+    }],
+    mdImgs: [{
+      src: 'https://unsplash.it/1600/900?image=10',
+      alt: 'tablet and desktop slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=11',
+      alt: 'tablet and desktop slide 2'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=12',
+      alt: 'tablet and desktop slide 3'
+    }],
+    lgImgs: [{
+      src: 'https://unsplash.it/1600/900?image=20',
+      alt: 'large desktop slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=21',
+      alt: 'large desktop slide 2'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=22',
+      alt: 'large desktop slide 3'
+    }]
+  })
+%}
+
+{% set carouselResponsiveCode =
+"  carousel.content({
+    imgs: [{
+      src: 'https://unsplash.it/400/300?image=0',
+      alt: 'mobile slide 1'
+    }, {
+      src: 'https://unsplash.it/400/300?image=1',
+      alt: 'mobile slide 2'
+    }, {
+      src: 'https://unsplash.it/400/300?image=2',
+      alt: 'mobile slide 3'
+    }],
+    mdImgs: [{
+      src: 'https://unsplash.it/1600/900?image=10',
+      alt: 'tablet and desktop slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=11',
+      alt: 'tablet and desktop slide 2'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=12',
+      alt: 'tablet and desktop slide 3'
+    }],
+    lgImgs: [{
+      src: 'https://unsplash.it/1600/900?image=20',
+      alt: 'large desktop slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=21',
+      alt: 'large desktop slide 2'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=22',
+      alt: 'large desktop slide 3'
+    }]
+  })"
+%}
+
+<h3>Default carousel with responsive contents</h3>
+<p>
+  <code>{ class: 'defualt' }</code>
+</p>
+<p>
+  When
+  <code>mdImg</code>
+  (for tablets and desktops) and
+  <code>lgImg</code>
+  (for large desktops) are set, the carousel will be responsive depending on screen sizes. Change the screen size to preview the example below.
+</p>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+    {{carouselResponsive}}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{{carouselResponsiveCode}}</pre>
+  </div>
+</div>
+
+{# Carousel with thumbnails #}
+{% set carouselThumbs =
+  carousel.content({
+    class: 'thumbnails',
+    id: 'example-carousel-with-thumbnails',
+    imgs: [{
+      src: 'https://unsplash.it/1600/900?image=0',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=10',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=20',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=30',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=40',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=50',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=60',
+      alt: 'slide 1'
+    }]
+  })
+%}
+
+{% set carouselThumbsCode =
+"  carousel.content({
+    class: 'thumbnails',
+    id: 'example-carousel-with-thumbnails',
+    imgs: [{
+      src: 'https://unsplash.it/1600/900?image=0',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=10',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=20',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=30',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=40',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=50',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=60',
+      alt: 'slide 1'
+    }]
+  })"
+%}
+
+<h3>Carousel with thumbnails</h3>
+<p>
+  <code>{ class: 'thumbnails' }</code>
+</p>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+    {{carouselThumbs}}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{{carouselThumbsCode}}</pre>
+  </div>
+</div>
+
+{# Carousel with thumbnails #}
+{% set carouselThumbsBg =
+  carousel.content({
+    id: 'example-carousel-using-background-image',
+    type: 'background',
+    imgs: [{
+      src: 'https://unsplash.it/1600/900?image=0',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=10',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=20',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=60',
+      alt: 'slide 1'
+    }]
+  })
+%}
+
+{% set carouselThumbsCodeBg =
+"  carousel.content({
+    id: 'example-carousel-using-background-image',
+    type: 'background',
+    imgs: [{
+      src: 'https://unsplash.it/1600/900?image=0',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=10',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=20',
+      alt: 'slide 1'
+    }, {
+      src: 'https://unsplash.it/1600/900?image=60',
+      alt: 'slide 1'
+    }]
+  })"
+%}
+
+<h3>Carousel using background image</h3>
+<p>
+  <code>{ type: 'background' }</code>
+</p>
+<div class="panel panel-default">
+
+  <div class="panel-body">
+    <div class="full-height-carousel-example" style="height: 400px">
+      {{carouselThumbsBg}}
+    </div>
+  </div>
+
+  <div class="panel-footer">
+    <pre>{{carouselThumbsCodeBg}}</pre>
+  </div>
+</div>

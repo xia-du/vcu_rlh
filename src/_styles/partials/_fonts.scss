@@ -1,0 +1,17 @@
+$slick-font-path: '/fonts/';
+
+$icon-font-path: '/fonts/';
+
+@function font-path($path) {
+  @return $path;
+}
+
+@font-face {
+  font-family: "SummerHeart";
+
+  src: url('/fonts/SummerHearts-Regular.eot');
+  src: url('/fonts/SummerHearts-Regular.woff2') format('woff2'),
+  url('/fonts/SummerHearts-Regular.woff') format('woff'),
+  url('/fonts/SummerHearts-Regular.ttf') format('truetype'),
+  url('/fonts/SummerHearts-Regular.svg#svgFontName') format('svg');
+}

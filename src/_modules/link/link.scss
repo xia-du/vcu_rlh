@@ -1,0 +1,25 @@
+// link styles
+
+// unvisited link
+// a:link {
+//     color: $secondary-blue;
+// }
+//
+// // visited link
+// a:visited {
+//     color: darken;
+// }
+//
+// // mouse over link
+// a:hover {
+//     color: $secondary-light-blue;
+// }
+//
+// // selected link
+// a:active {
+//     color: $secondary-teal;
+// }
+
+a {
+  transition: all .2s ease;
+}

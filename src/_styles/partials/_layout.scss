@@ -1,0 +1,171 @@
+// Help center styles
+$section-padding: 40px 0;
+$section-padding-sm: 50px 0;
+$section-padding-md: 60px 0;
+$section-padding-lg: 80px 0;
+
+// Section types fixing
+$section-masonry-padding: 15px 0;
+$section-masonry-padding-sm: 40px 0;
+$section-masonry-padding-md: 60px 0;
+$section-masonry-padding-lg: 70px 0;
+
+$title-margin-bot: 10px;
+$title-margin-bot-sm: 20px;
+$title-margin-bot-md: 30px;
+$title-margin-bot-lg: 40px;
+
+// Hero section
+$height-hero: 200px;
+$height-hero-sm: 360px;
+$height-hero-md: 420px;
+$height-hero-lg: 500px;
+
+// Hero item
+.hero {
+  overflow: hidden;
+
+  height: $height-hero;
+  .carousel {
+    overflow: hidden;
+  }
+}
+
+// Helpers
+.col-num-2 {
+  column-count: 2;
+}
+
+// Section style
+section {
+  padding: $section-padding;
+
+  > .container > .title {
+    margin-bottom: $title-margin-bot;
+    h2 {
+      width: 100%;
+      margin: 0;
+
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  // Section type positioning and sizing
+  &.section-hero {
+    padding: 0;
+  }
+
+  &.section-masonry {
+    padding: $section-masonry-padding;
+    .row {
+      padding: 0 7.5px;
+    }
+  }
+
+  &.section-help_center {
+    padding: 0;
+  }
+
+  &.section-mobile_cta {
+    margin: 0;
+    padding: 0;
+  }
+
+  &.section-carousel {
+    padding: 0;
+  }
+
+  &.section-image {
+    padding: 0;
+  }
+
+  &.no-padding {
+    padding: 0;
+  }
+
+  // Section coloring
+  &.section-dark {
+    color: $white;
+    background-color: $gray-darker;
+
+    > .container > .title {
+      color: $brand-primary;
+    }
+  }
+
+  &.section-gray-lighter {
+    background-color: $gray-lighter;
+  }
+}
+
+@media (min-width: $screen-xs) {
+}
+@media (min-width: $screen-sm) {
+  .hero {
+    height: $height-hero-sm;
+
+    h1 {
+      font-size: 60px;
+    }
+
+    .carousel {
+      overflow: hidden;
+    }
+  }
+
+  section {
+    padding: $section-padding-sm;
+    > .container > .title {
+      margin-bottom: $title-margin-bot-sm;
+    }
+
+    &.section-masonry {
+      padding: $section-masonry-padding-sm;
+    }
+
+    &.section-mobile_cta {
+      padding: $section-masonry-padding-sm;
+      padding-top: 0;
+    }
+  }
+}
+@media (min-width: $screen-md) {
+  .hero {
+    height: $height-hero-md;
+
+    .carousel {
+      overflow: hidden;
+    }
+  }
+
+  section {
+    padding: $section-padding-md;
+    > .container > .title {
+      margin-bottom: $title-margin-bot-md;
+    }
+
+    &.section-masonry {
+      padding: $section-masonry-padding-md;
+    }
+  }
+}
+@media (min-width: $screen-lg) {
+  .hero {
+    height: $height-hero-lg;
+
+    .carousel {
+      overflow: hidden;
+    }
+  }
+  section {
+    padding: $section-padding-lg;
+    > .container > .title {
+      margin-bottom: $title-margin-bot-lg;
+    }
+
+    &.section-masonry {
+      padding:  $section-masonry-padding-lg;
+    }
+  }
+}

@@ -1,0 +1,32 @@
+// Home page styles
+$padding-base: 15px;
+
+.home {
+  section {
+    &.section-mobile_cta {
+      .btn {
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xs) {
+  .home {
+    section {
+      &.section-mobile_cta{
+        .btn {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm) {
+}
+
+@media (min-width: $screen-md) {
+}
+@media (min-width: $screen-lg) {
+}

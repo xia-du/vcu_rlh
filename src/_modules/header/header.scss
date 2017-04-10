@@ -1,0 +1,151 @@
+// header styles
+$header-h: 30vw;
+$logo-size: 6vw;
+$icon-size: 6vw;
+$icon-box-size: 8vw;
+
+.header {
+  min-height: $header-h;
+
+  .brand-logo {
+    display: flex;
+
+    min-height: $header-h;
+    padding-right: 0;
+
+    align-items: center;
+    justify-content: flex-start;
+
+    h2 {
+      font-size: $logo-size;
+
+      margin: 0;
+    }
+  }
+
+  .social-icons {
+    display: flex;
+
+    min-height: $header-h;
+    padding-left: 0;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    ul {
+      margin: 0;
+      padding: 10px 0;
+
+      list-style: none;
+
+      text-align: right;
+
+      li.icon {
+        display: inline-block;
+
+        width: $icon-box-size;
+        height: $icon-box-size;
+        margin: 0 0 0 4px;
+
+        cursor: pointer;
+        transition: all $speed-fast ease;
+        text-align: center;
+
+        background: $gray-darker;
+
+        &.facebook:hover {
+          background: $facebook-blue;
+        }
+
+        &.twitter:hover {
+          background: $twitter-blue;
+        }
+
+        &.youtube:hover {
+          background: $youtube-red;
+        }
+
+        &.pinterest:hover {
+          background: $pinterest-red;
+        }
+
+        a {
+          font-size: $icon-size;
+
+          color: $white;
+        }
+      }
+    }
+  }
+
+  .search-bar {
+    display: flex;
+
+    min-height: $header-h;
+
+    align-items: center;
+    justify-content: flex-end;
+
+    .btn {
+      border-bottom: 1px solid #e6a700;
+    }
+  }
+}
+@media (max-width: 334px) {
+  header {
+    .brand-logo {
+      h2 {
+        font-size: 18px !important;
+      }
+    }
+  }
+}
+@media (min-width: $screen-xs) {
+}
+@media (min-width: 500px) {
+  $header-h: $header-max-height;
+  $logo-size: 30px;
+  $icon-size: 32px;
+  $icon-box-size: 44px;
+
+  .header {
+    min-height: $header-h;
+
+    .brand-logo {
+      min-height: $header-h;
+
+      h2 {
+        font-size: $logo-size;
+
+        small {
+          color: #b0b0b0;
+        }
+      }
+    }
+
+    .social-icons {
+      min-height: $header-h;
+
+      ul {
+        li.icon {
+          width: $icon-box-size;
+          height: $icon-box-size;
+
+          a {
+            font-size: $icon-size;
+          }
+        }
+      }
+    }
+
+    .search-bar {
+      min-height: $header-h;
+    }
+  }
+}
+@media (min-width: $screen-sm) {
+}
+@media (min-width: $screen-md) {
+}
+@media (min-width: $screen-lg) {
+}

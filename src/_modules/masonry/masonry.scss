@@ -1,0 +1,23 @@
+// masonry styles
+.isotope-grid {
+  div[class*='col-xs'] {
+    padding-right: 7.5px;
+    padding-left: 7.5px;
+  }
+
+  .isotope-grid-item {
+    z-index: 10;
+
+    .isotope-grid-item-content {
+      height: 100%;
+
+      .isotope-grid-inner-row {
+        padding-top: 7.5px;
+        padding-bottom: 7.5px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm) {
+}

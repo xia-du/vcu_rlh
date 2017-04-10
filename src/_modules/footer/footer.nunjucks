@@ -1,0 +1,118 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+
+  {% set _class = spec.class or '' %}
+  {% set _id = spec.id or '' %}
+
+  {% set _env = spec.env or '' %}
+  {% set _social = _env.social or '' %}
+  {% set _primaryItems = _env.footer.primaryItems or '' %}
+  {% set _secondaryItems = _env.footer.secondaryItems or '' %}
+
+  <footer>
+    <div class="container {{_class}}" id="{{_id}}">
+
+      <div class="row">
+
+        {# End of xxs items #}
+        <div class="col-xs-2 col-sm-2 col-md-1 hidden-xxs">
+          <div class="social-icons">
+            <ul>
+              {% for item in _social %}
+                <li class="icon {{item.name}}">
+                  <a href="{{item.link}}" target="_blank">
+                    <i class="fa fa-{{item.name}}" aria-hidden="true"></i>
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-4 col-sm-2 col-md-2">
+          <div class="primary-links">
+            <ul>
+              {% for item in _primaryItems %}
+                <li>
+                  <a href="item.link" target="_blank">{{item.name}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-xs-6 col-sm-3 col-md-2 hidden-xxs hidden-xs">
+          <div class="secondary-links">
+            <ul>
+              {% for item in _secondaryItems %}
+                <li>
+                  <a href="item.link" target="_blank">{{item.name}}</a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+
+        <div class="mobile-contact col-xs-6 col-sm-4 hidden-md hidden-lg">
+          <div class="logo-sm">
+            <img src="/images/vcu_logo_mobile.svg" alt="Footer Logo">
+          </div>
+
+          <div class="contact-info">
+            <p>      301 West Cary St.<br>
+              Richmond, VA 23284-2517</p>
+            <div class="phone-email">
+              <p>
+                <i class="fa fa-phone"></i>
+                <a href="tel:804-828-7666">804-828-7666</a>
+              </p>
+              <p>
+                <i class="fa fa-envelope"></i>
+                <a href="mailto:vcuhousing@vcu.edu">vcuhousing@vcu.edu</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-md-4 hidden-xxs hidden-xs hidden-sm">
+          <div class="logo-md">
+            <img src="/images/footer_logo_md_alt.svg" alt="Footer Logo">
+          </div>
+        </div>
+
+        <div class="col-md-3 hidden-xxs hidden-xs hidden-sm">
+          <div class="contact-info-md">
+            <div class="info-md contact">
+              <h4>Contact</h4>
+              <hr>
+              <ul>
+                <li>(P) 804 828 7666</li>
+                <li>(F) 804 828 2466</li>
+                <li>
+                  Email:
+                  <a href="mailto:vcuhousing@vcu.edu">vcuhousing@vcu.edu</a>
+                </li>
+              </ul>
+            </div>
+            <div class="info-md location">
+              <h4>Location</h4>
+              <hr>
+              <p>301 West Cary St.<br>
+                Richmond, VA 23284-2517</p>
+            </div>
+            <div class="info-md mailing">
+              <h4>Mailing Address</h4>
+              <hr>
+              <p>P.O. Box 842530<br>
+                Richmond, VA 23284-2517</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </footer>
+{% endmacro %}

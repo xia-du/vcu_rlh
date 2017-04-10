@@ -1,0 +1,176 @@
+<h3>Styles</h3>
+<p>
+  <code>button.content(spec)</code>
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{button.content({
+      text:   'Default Button'
+    })}}
+
+    {{button.content({
+      text:   'Primary Button',
+      style:  'primary'
+    })}}
+
+    {{button.content({
+      text:   'Info Button',
+      style:  'info'
+    })}}
+
+    {{button.content({
+      text:   'Success Button',
+      style:  'success'
+    })}}
+
+    {{button.content({
+      text:   'Warning Button',
+      style:  'warning'
+    })}}
+
+    {{button.content({
+      text:   'Danger Button',
+      style:  'danger'
+    })}}
+
+    {{button.content({
+      tag:    'a',
+      text:   'Link Button',
+      style:  'link',
+      href:   'https://google.com/',
+      target: '_blank'
+    })}}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{% raw %}
+{{button.content({
+  text:   'Default Button'
+})}}
+
+{{button.content({
+  text:   'Primary Button',
+  style:  'primary'
+})}}
+
+{{button.content({
+  text:   'Info Button',
+  style:  'info'
+})}}
+
+{{button.content({
+  text:   'Success Button',
+  style:  'success'
+})}}
+
+{{button.content({
+  text:   'Warning Button',
+  style:  'warning'
+})}}
+
+{{button.content({
+  text:   'Danger Button',
+  style:  'danger'
+})}}
+
+{{button.content({
+  tag:    'a',
+  text:   'Link Button',
+  style:  'link',
+  href:   'https://google.com/',
+  target: '_blank'
+})}}{% endraw %}</pre>
+  </div>
+</div>
+
+<h3>Sizes</h3>
+<p>
+  <code>class: btn-*</code>
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{button.content({
+      text:  'Large Button',
+      style: 'primary',
+      class: 'btn-lg'
+    })}}
+
+    {{button.content({
+      text:  'Default Button',
+      style: 'primary'
+    })}}
+
+    {{button.content({
+      text:  'Small Button',
+      style: 'primary',
+      class: 'btn-sm'
+    })}}
+
+    {{button.content({
+      text:  'Extra Small Button',
+      style: 'primary',
+      class: 'btn-xs'
+    })}}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{% raw %}
+{{button.content({
+  text:  'Large Button',
+  style: 'primary',
+  class: 'btn-lg'
+})}}
+
+{{button.content({
+  text:  'Default Button',
+  style: 'primary'
+})}}
+
+{{button.content({
+  text:  'Small Button',
+  style: 'primary',
+  class: 'btn-sm'
+})}}
+
+{{button.content({
+  text:  'Extra Small Button',
+  style: 'primary',
+  class: 'btn-xs'
+})}}{% endraw %}</pre>
+  </div>
+</div>
+
+<h3>Block</h3>
+<p>
+  <code>class: btn-*</code>
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{button.content({
+      text:  'Block level button',
+      style: 'primary',
+      class: 'btn-lg btn-block'
+    })}}
+
+    {{button.content({
+      text:  'Block level button',
+      style: 'default',
+      class: 'btn-lg btn-block'
+    })}}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{% raw %}
+{{button.content({
+  text:  'Block level button',
+  style: 'primary',
+  class: 'btn-lg btn-block'
+})}}
+
+{{button.content({
+  text:  'Block level button',
+  style: 'default',
+  class: 'btn-lg btn-block'
+})}}{% endraw %}</pre>
+  </div>
+</div>

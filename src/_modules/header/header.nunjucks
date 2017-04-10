@@ -1,0 +1,46 @@
+{% macro content(spec) %}
+
+  {% import "_modules/link/link.nunjucks" as link %}
+
+  {% set spec = spec or {} %}
+  {% set _env = spec.env or '' %}
+  {% set _class = spec.class or '' %}
+
+  <header class="header container {{_class}}">
+    <div class="row">
+      <div class="brand-logo col-xs-6">
+        <div class="">
+          <h2>RESIDENTIAL<br/>LIFE AND HOUSING
+            <small><br/>Student Affairs</small>
+          </h2>
+        </div>
+      </div>
+
+      <div class="social-icons hidden-md hidden-lg col-xs-6">
+        <ul>
+          {% for item in _env.social %}
+            <li class="icon {{item.name}}">
+              <a href="{{item.link}}" target="_blank">
+                <i class="fa fa-{{item.name}}" aria-hidden="true"></i>
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="search-bar hidden-sm hidden-xs col-md-offset-3 col-md-3">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for...">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+  </header>
+
+{% endmacro %}

@@ -1,0 +1,251 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data,
+    secondaryItems: site.data.doc
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <style media="screen">
+    xmp {
+      margin: 0;
+      padding: 0;
+    }
+    pre {
+      border: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page-wrap>.section {
+      padding: 0;
+    }
+
+    .section > h2 {
+      text-transform: capitalize;
+      margin-top: 40px;
+    }
+
+    .section > h3 {
+      margin-top: 40px;
+    }
+
+    .panel {
+      margin: 20px 0;
+    }
+
+    .expand-btn {
+      color: #ffba00;
+      float: right;
+      font-size: 16px;
+      padding: 20px;
+    }
+
+    .panel .header {
+      border: 1px solid lightgray;
+    }
+
+    .page-header hr {
+      display: none;
+    }
+
+    .panel nav {
+      position: initial;
+      z-index: 100;
+    }
+
+    .panel nav .main-nav .mobile #nav-icon {
+      z-index: 0;
+    }
+
+    .panel .desktop-secondary.fix-top {
+      border-left: 1px solid lightgray;
+      border-right: 1px solid lightgray;
+      position: initial;
+    }
+
+    .panel header {
+      width: 100%;
+      margin-bottom: 0 !important;
+    }
+
+    .panel footer .container {
+      width: 100%;
+    }
+
+    .panel .help-center-wrap .container {
+      width: 100%;
+    }
+
+    @media (max-width: 332px) {
+      .panel footer,
+      .panel footer a,
+      .panel footer p {
+        font-size: 10px !important;
+      }
+    }
+    @media (max-width: 457px) {
+      .panel-body>header li.pinterest {
+        display: none !important;
+      }
+    }
+    @media (max-width: 542px) {
+      .panel-body>header .brand-logo h2 {
+        font-size: 4vw !important;
+      }
+    }
+    @media (max-width: 768px) {
+      .panel-body>.btn {
+        margin-bottom: 15px;
+      }
+    }
+    @media (max-width: 992px) {
+      .page-header,
+      .page-header hr {
+        margin-top: 0;
+      }
+      .page-header hr {
+        display: block;
+      }
+    }
+
+  </style>
+
+  <div class="container page-wrap">
+    <div class="section">
+      <div class="page-header">
+        <hr>
+        <h1>RLH Site UI Library
+          <small>V1.0 March 2017</small>
+        </h1>
+      </div>
+      <p>
+        <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
+        is the CSS framework of this project. Only the essential elements and custom UI elements are listed in this document.
+      </p>
+      <p>
+        Please use this document as the reference for the use of modules/css included in this project.
+      </p>
+      <p>
+        <ul>
+          <li>
+            <span class="label label-warning text-uppercase">css</span>
+            This is a CSS style. Use HTML tags or classes.</li>
+          <li>
+            <span class="label label-success text-uppercase">module</span>
+            This is a module. Find this module in
+            <code>src/_module/</code>, which includes a
+            <code>.nunjucks</code>
+            template, a
+            <code>.scss</code>
+            stylesheet and a
+            <code>.js</code>
+            script.</li>
+        </ul>
+      </p>
+      <p>
+        Use modules in templates:
+        <ol>
+          <li>Import the module at the top of a template:
+            <br>
+            <code>
+              {% raw %}
+                {% import "_modules/image/image.nunjucks" as image %}
+              {% endraw %}
+            </code>
+          </li>
+          <li>Use the snippets in double brackets:
+            <br>
+            <pre>
+  {% raw %}
+  {{image.content({
+    src:      'https://source.unsplash.com/category/nature/800x400',
+    alt:      'example image',
+    class:    'img-responsive img-rounded',
+    id:       'example-img',
+
+    caption:  'This is a image caption'
+  })}}
+  {% endraw %}</pre>
+          </li>
+        </ol>
+      </p>
+    </div>
+
+    {% for item in site.data.doc %}
+
+      {% set title = item.title or item.name %}
+      {% set tags = item.tags %}
+
+      <div class="section" id="{{item.name}}">
+
+        <h2>{{title}}
+
+          {% if item.status == 'working' %}
+            <small class="text-danger">{{item.status}}</small>
+          {% elif item.status == 'testing' %}
+            <small class="text-warning">{{item.status}}</small>
+          {% else %}
+          {% endif %}
+
+          <a class="expand-btn" role="button" data-toggle="collapse" href="#{{item.name}}-section" aria-expanded="false" aria-controls="typograhpy-section">
+            <i class="glyphicon glyphicon-plus"></i>
+          </a>
+        </h2>
+
+        {% for tag in tags %}
+          {% if tag == 'css' %}
+            <span class="label label-warning text-uppercase">{{tag}}</span>
+          {% endif %}
+          {% if tag == 'module' %}
+            <span class="label label-success text-uppercase">{{tag}}</span>
+          {% endif %}
+        {% endfor %}
+
+        <hr>
+
+        <div {% if item.status == 'finished' %} class="collapse" {% endif %} id="{{item.name}}-section">
+          {% include "_dev/doc-" + item.name + ".njk" %}
+        </div>
+      </div>
+      {# End of {{item.name}} #}
+    {% endfor %}
+
+  </div>
+  {# End of Container #}
+
+{% endblock%}

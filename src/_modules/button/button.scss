@@ -1,0 +1,18 @@
+// button styles
+button:focus {
+  outline: 0 !important;
+}
+
+.btn {
+  font-family: $font-family-heading;
+  font-weight: 400;
+
+  transition: all $speed-faster ease;
+  text-transform: capitalize;
+
+  &:not(.btn-link):not(.no-bot-border) {
+    color: $gray-darker;
+    border-bottom: 2px solid rgba($black, .2);
+  }
+
+}

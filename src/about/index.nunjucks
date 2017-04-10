@@ -1,0 +1,49 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  <!-- Navigation bar -->
+  {{ navigation.content({
+    env: site.data
+  }) }}
+  <!-- End of navigation bar -->
+{% endblock %}
+
+{% block header %}
+  <!--Header-->
+  {{ header.content({
+    env: site.data
+  }) }}
+  <!--End of header-->
+{% endblock %}
+
+{% block footer %}
+  <!--Footer-->
+  {{ footer.content({
+    env: site.data
+  }) }}
+  <!--End of footer-->
+{% endblock %}
+
+{% block content %}
+  <!--Content-->
+  <p>about page</p>
+  <!--End of content-->
+{% endblock %}

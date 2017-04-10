@@ -1,0 +1,40 @@
+{
+  "primaryItems": [{
+    "name": "Student Affairs",
+    "link": "#"
+  }, {
+    "name": "VCU Parking",
+    "link": "#"
+  }, {
+    "name": "VCU Bookstore",
+    "link": "#"
+  }, {
+    "name": "VCU Commons",
+    "link": "#"
+  }, {
+    "name": "VCU Dining",
+    "link": "#"
+  }, {
+    "name": "Sustainability",
+    "link": "#"
+  }],
+  "secondaryItems": [{
+    "name": "Resource",
+    "link": "/resource"
+  }, {
+    "name": "Halls",
+    "link": "/halls"
+  }, {
+    "name": "Residential Life",
+    "link": "/residential-life"
+  }, {
+    "name": "About",
+    "link": "/about"
+  }, {
+    "name": "Contact",
+    "link": "/contact"
+  }, {
+    "name": "Application Portal",
+    "link": "#"
+  }]
+}

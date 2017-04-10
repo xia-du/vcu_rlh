@@ -1,0 +1,84 @@
+// Home page styles
+$padding-base: 15px;
+$margin-base: 30px;
+$margin-sm: 30px;
+$margin-md: 60px;
+
+.life-on-campus {
+  #blog {
+    .featured-posts {
+      margin-top: $margin-base;
+
+      figure {
+
+        img {
+          margin-top: $margin-base;
+
+          &.no-margin-top {
+            margin-top: 0;
+          }
+        }
+
+        figcaption {
+          padding-right: 0;
+          padding-left: 0;
+
+          text-align: left;
+
+          color: $gray-dark;
+
+          i {
+            font-family: $font-family-sans-serif;
+            font-style: normal;
+          }
+        }
+      }
+    }
+    .blog-cta {
+      margin-top: $margin-base;
+
+      text-align: center;
+    }
+  }
+}
+
+@media (min-width: $screen-xs) {
+}
+
+@media (min-width: $screen-sm) {
+  .life-on-campus {
+    #blog {
+      .featured-posts {
+        margin-top: $margin-sm;
+        margin-top: $margin-base;
+        figure {
+          img {
+            margin-top: 0;
+          }
+        }
+      }
+      .blog-cta {
+        margin-top: $margin-sm;
+
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  .life-on-campus {
+    #blog {
+      .featured-posts {
+        margin-top: $margin-md;
+      }
+      .blog-cta {
+        margin-top: $margin-md;
+
+        text-align: center;
+      }
+    }
+  }
+}
+@media (min-width: $screen-lg) {
+}

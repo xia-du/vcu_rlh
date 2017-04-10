@@ -1,0 +1,336 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data,
+    active: 'halls'
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block scripts %}
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCdPsP7zAnbg0NdO_JOZMpt6CQs666UN9M"></script>
+  <script src="/scripts/pages/halls.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="halls">
+
+    <section class="section-hero">
+      <div class="hero">
+        <div class="google-map" id="map"></div>
+      </div>
+    </section>
+
+    <section class="section-masonry">
+      <div class="container">
+
+        <div class="row hall-types">
+          <div class="mobile visible-xs-block">
+            <div class="btn-group btn-group-justified" role="group">
+              <div class="btn-group btn-group-justified filters-button-group" role="group">
+                <button type="button" class="btn btn-lg btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="dropdown-text">All Halls</span>
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li class="active"><a href="#" class="filter-link" data-filter=".hall">All Halls</a></li>
+                  <li><a href="#" class="filter-link" data-filter=".freshmen">Freshmen</a></li>
+                  <li><a href="#" class="filter-link" data-filter=".upperclassmen">Upperclassmen</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="desktop hidden-xs">
+            <div class="btn-group btn-group-justified filters-button-group" role="group">
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-lg btn-primary filter-btn" data-filter=".hall">All Halls</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-lg btn-default filter-btn" data-filter=".freshmen">Freshmen Halls</button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-lg btn-default filter-btn" data-filter=".upperclassmen">Upperclassmen Halls</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          {{masonry.content({
+            id: 'halls-grid',
+            rows: [
+              [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall upperclassmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Broad & Belvidere',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall freshmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Carry & Belvidere',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall upperclassmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'West Grace South',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall upperclassmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'West Grace North',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall upperclassmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Grace & Broad',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall upperclassmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Ackell Residence Center',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall freshmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Brandt Hall, Rhoads Hall',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall freshmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Johnson Hall',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall freshmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Cabaniss Hall, MCV',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall freshmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Low-Rises, MCV',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall upperclassmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'Gladding',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }], [{
+                width: [12, 4],
+                height: [200],
+                filter: 'hall freshmen',
+                innerRows: [{
+                  img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                  link: '/room',
+                  target: '_self',
+
+                  overlayCaption: true,
+                  overlayClass: 'sm-caption',
+                  overlayHoverable: true,
+                  overlayText: 'The Honors College    ',
+                  overlayDescription: 'Description Text could be longer but not too much.'
+                }]
+              }]
+            ]})}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-carousel">
+      {{carousel.content({
+        class: 'default with-border',
+        imgs: [{
+          src: 'https://unsplash.it/1600/900?image=0',
+          alt: 'mobile slide 1',
+          overlay: {
+            title: 'Example Title',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+            cta: {
+              text: 'Learn More',
+              link: '#'
+            }
+          }
+        }, {
+          src: 'https://unsplash.it/1600/900?image=1',
+          alt: 'mobile slide 2',
+          overlay: {
+            title: 'Example Title',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+            cta: {
+              text: 'Learn More',
+              link: '#'
+            }
+          }
+        }, {
+          src: 'https://unsplash.it/1600/900?image=2',
+          alt:'mobile slide 3',
+          overlay: {
+            title: 'Example Title',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+            cta: {
+              text: 'Learn More',
+              link: '#'
+            }
+          }
+        }]
+      })}}
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
+{% endblock %}

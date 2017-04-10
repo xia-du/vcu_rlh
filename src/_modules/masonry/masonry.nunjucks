@@ -1,0 +1,155 @@
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {% set _class = spec.class or '' %}
+  {% set _id = spec.id or '' %}
+  {% set _rows = spec.rows or '' %}
+
+  <!--Masonry-->
+  <div class="{{_class}}">
+    <div class="isotope-grid" id="{{_id }}">
+
+      {% for row in _rows %}
+        <!--Row-->
+        {# <div class="row"> #}
+          {% for item in row %}
+
+            {# filters #}
+            {% set _filter = item.filter or '' %}
+
+            {# width #}
+            {% set xsW = item.width[0]or '12' %}
+            {% set smW = item.width[1]or xsW %}
+            {% set mdW = item.width[2]or smW %}
+            {% set lgW = item.width[3]or mdW %}
+
+            {# height #}
+            {% set xsH = item.height[0]or '300' %}
+            {% set smH = item.height[1]or xsH %}
+            {% set mdH = item.height[2]or smH %}
+            {% set lgH = item.height[3]or mdH %}
+
+            {# detect if the item has more than 1 inner rows #}
+            {% set hasInnerRows = false %}
+            {% set hasInnerRowsClass = '' %}
+
+            {% if item.innerRows.length > 1 %}
+              {% set hasInnerRows = true %}
+              {% set hasInnerRowsClass = 'has-inner-rows hidden-xs' %}
+            {% endif %}
+
+            {% if hasInnerRows %}
+              {% for innerRow in item.innerRows %}
+                <div class="isotope-grid-item visible-xs-block col-xs-{{xsW}} {{_filter}}"
+                data-xs-height="{{xsH}}"
+                data-sm-height="{{smH}}"
+                data-md-height="{{mdH}}"
+                data-lg-height="{{lgH}}">
+
+                  <div class="isotope-grid-item-content">
+
+                      {# link #}
+                      {% set _link = innerRow.link %}
+                      {% set _target = innerRow.target %}
+
+                      {# mark vertical position of the item #}
+                      {% set innerRowQty = item.innerRows.length %}
+
+                      <!--Inner row-->
+                      <div class="isotope-grid-inner-row" style="height: 100%" data-inner-row-qty="{{innerRowQty}}">
+
+                        {% if _link %}
+                          <a href="{{_link}}" target="{{_target}}">
+                          {% endif %}
+
+                          {{image.content({ src: innerRow.img,
+                            class: 'masonry-img',
+                            type: 'background',
+
+                            overlayCaption: innerRow.overlayCaption,
+                            overlayHoverable: innerRow.overlayHoverable,
+                            overlayText: innerRow.overlayText,
+                            overlayDescription: innerRow.overlayDescription,
+
+                            overlayFont: innerRow.overlayFont,
+                            overlayAlign: innerRow.overlayAlign,
+                            overlayColor: innerRow.overlayColor,
+                            overlayStyle: innerRow.overlayStyle,
+
+                            filter: innerRow.filter
+                          })}}
+
+                          {% if _link %}
+                          </a>
+                        {% endif %}
+
+                      </div>
+                    </div>
+
+                  </div>
+                {% endfor %}
+              {% endif %}
+
+            <div class="isotope-grid-item {{hasInnerRowsClass}} {{_filter}} col-xs-{{xsW}} col-sm-{{smW}} col-md-{{mdW}} col-lg-{{lgW}}" data-xs-height="{{xsH}}" data-sm-height="{{smH}}" data-md-height="{{mdH}}" data-lg-height="{{lgH}}">
+
+              <div class="isotope-grid-item-content">
+                {% for innerRow in item.innerRows %}
+
+                  {# link #}
+                  {% set _link = innerRow.link %}
+                  {% set _target = innerRow.target %}
+
+                  {# mark vertical position of the item #}
+                  {% set innerRowQty = item.innerRows.length %}
+
+                  <!--Inner row-->
+                  <div class="isotope-grid-inner-row" style="height: {{100/innerRowQty + '%'}}" data-inner-row-qty="{{innerRowQty}}">
+
+                    {% if _link %}
+                      <a href="{{_link}}" target="{{_target}}">
+                      {% endif %}
+
+                      {{image.content({
+                          src: innerRow.img,
+                          class: 'masonry-img',
+                          type: 'background',
+
+                          overlayCaption: innerRow.overlayCaption,
+                          overlayHoverable: innerRow.overlayHoverable,
+                          overlayText: innerRow.overlayText,
+                          overlayDescription: innerRow.overlayDescription,
+
+                          overlayClass: innerRow.overlayClass,
+                          overlayFont: innerRow.overlayFont,
+                          overlayAlign: innerRow.overlayAlign,
+                          overlayColor: innerRow.overlayColor,
+                          overlayStyle: innerRow.overlayStyle,
+
+                          filter: innerRow.filter
+                        })}}
+
+                      {% if _link %}
+                      </a>
+                    {% endif %}
+
+                  </div>
+
+                {% endfor %}
+                {# End of vertical inner rows #}
+              </div>
+
+            </div>
+
+          {% endfor %}
+          {# End of horizontal rows #}
+        {# </div> #}
+      {% endfor %}
+
+    </div>
+  </div>
+  <!--End of Masonry-->
+
+{% endmacro %}

@@ -1,0 +1,190 @@
+{% macro content(spec) %}
+
+  {% import "_modules/image/image.nunjucks" as image %}
+  {% import "_modules/link/link.nunjucks" as link %}
+
+  {% set spec = spec or {} %}
+  {% set _class = spec.class or '' %}
+  {% set _active = spec.active or '' %}
+  {% set _items = spec.env.nav or[] %}
+  {% set _secondaryItems = spec.secondaryItems or[] %}
+
+  <nav class="{{_class}}">
+    <div class="container-fluid">
+      <div class="main-nav">
+        <div class="mobile">
+          <div class="menu-btn">
+            <div id="nav-icon">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
+
+          <div class="logo">
+            <a href="/">
+              {{image.content({
+                src: '/images/vcu_logo_mobile.svg',
+                alt: 'vcu logo'
+              })}}
+            </a>
+          </div>
+
+          <div class="search-btn" id="search-btn-mobile">
+            <i class="fa fa-search"></i>
+          </div>
+
+        </div>
+        {# End of mobile nav #}
+        <div class="desktop">
+          <ul class="desktop-main-nav">
+            {% for item in _items %}
+              {% if item.name == _active %}
+                {% set _activeClass = 'active' %}
+              {% else %}
+                {% set _activeClass = '' %}
+              {% endif %}
+              <li class="{{_activeClass}}">
+                <a href="{{item.link}}" class="main-nav-item">{{item.name}}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {# End of desktop nav #}
+      </div>
+      {# End of main nav #}
+    </div>
+    {# End of container fluid #}
+  </nav>
+  {# End of nav #}
+
+  <div class="menu" id="side-menu">
+    <ul class="main-menu">
+      {% for item in _items %}
+        <li>
+          <h2>
+            {{link.content({
+              href: item.link,
+              text: item.name,
+              class: 'main-menu-item'
+            })}}
+          </h2>
+        </li>
+      {% endfor %}
+    </ul>
+
+    {% if _secondaryItems.length %}
+      <ul class="secondary-menu hidden" id="secondary-menu">
+        {% for secondaryItem in _secondaryItems %}
+          {% if loop.index <= 6 %}
+            <li>
+              <h2>
+                {{link.content({
+                  href: secondaryItem.link,
+                  text: secondaryItem.name,
+                  class: 'secondary-menu-item'
+                })}}
+              </h2>
+            </li>
+          {% endif %}
+
+        {% endfor %}
+        {% if _secondaryItems.length > 6 %}
+          <li>
+            <div class="dropup">
+              <a class="dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                More
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                {% for secondaryItem in _secondaryItems %}
+                  {% if loop.index > 7 %}
+                    <li>
+                      <h2>
+                        {{link.content({
+                          href: secondaryItem.link,
+                          text: secondaryItem.name,
+                          class: 'secondary-menu-item'
+                        })}}
+                      </h2>
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+
+      <div class="menu-tabs container-fluid">
+        <div class="tabs-wrap row">
+          <div class="col-xs-6 tab main-tab active">
+            <a>
+              <h3>Site Nav</h3>
+            </a>
+          </div>
+          <div class="col-xs-6 tab secondary-tab">
+            <a>
+              <h3>Page Nav</h3>
+            </a>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </div>
+  {# End of menu #}
+
+  <div class="search" id="search-bar-mobile">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default no-bot-border" type="submit">
+          Search
+        </button>
+      </span>
+    </div>
+  </div>
+  {# End of search #}
+
+  {% if _secondaryItems.length %}
+    <div class="desktop-secondary">
+      <ul class="desktop-secondary-nav">
+        {% for secondaryItem in _secondaryItems %}
+          {% if loop.index <= 7 %}
+            <li>
+              {{link.content({
+                href: secondaryItem.link,
+                text: secondaryItem.name,
+                class: 'desktop-secondary-nav-item'
+              })}}
+            </li>
+          {% endif %}
+        {% endfor %}
+        {% if _secondaryItems.length > 7 %}
+          <li>
+            <div class="dropdown">
+              <a class="dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                More
+                <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+                {% for secondaryItem in _secondaryItems %}
+                  {% if loop.index > 7 %}
+                    <li>
+                      {{link.content({
+                  href: secondaryItem.link,
+                  text: secondaryItem.name,
+                  class: 'desktop-secondary-nav-item'
+                })}}
+                    </li>
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </div>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  {% endif %}
+  {# End of desktop secondary nav #}
+{% endmacro %}

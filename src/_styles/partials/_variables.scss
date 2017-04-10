@@ -1,0 +1,42 @@
+@import 'bootstrap/_variables';
+
+// Typography
+
+// Color
+$black:         #000;
+$white:         #fff;
+$gray-lightest: #fcfcfc;
+
+$primary-gold:           $brand-primary;
+
+$secondary-blue:         #4795cc;
+$secondary-light-yellow: #ffcf4c;
+$secondary-light-blue:   #69b3e7;
+$secondary-teal:         #00a8cf;
+$secondary-cyan:         #5cc19e;
+$secondary-green:        #5cb85c;
+$secondary-brown:        #cc7851;
+$secondary-magenta:      #dc47a0;
+$secondary-red:          #d9534f;
+
+$facebook-blue:          #3b5999;
+$twitter-blue:           #55acee;
+$youtube-red:            #cd201f;
+$pinterest-red:            #bd081c;
+
+// Animation
+$speed-faster:  100ms;
+$speed-fast:    200ms;
+$speed-default: 300ms;
+$speed-slow:    400ms;
+
+// Sizing
+$header-max-height:  140px;
+$mobile-nav-height:  64px;
+$desktop-nav-height: 48px;
+
+// Borders
+$border-bolder:  8px;
+$border-bold:    4px;
+$border-default: 2px;
+$border-thin:    1px;

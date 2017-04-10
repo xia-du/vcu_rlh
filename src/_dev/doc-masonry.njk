@@ -1,0 +1,135 @@
+<p>
+  Using <a href="http://isotope.metafizzy.co/">Isotope</a>.
+</p>
+<p>
+  Dependencies:
+  <ul>
+    <li><a href="#image">Image module</a></li>
+    <li><a href="#carousel">Carousel module (Optional)</a></li>
+  </ul>
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{masonry.content({
+      id: 'example-masonry',
+      rows: [
+        [
+          {
+            width: [12, 12, 12],
+            height: [200, 400, 500],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/nature/800x400'
+            }]
+          }
+        ],
+        [
+          {
+            width: [12, 8, 8],
+            height: [200, 300, 300],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/people/800x400',
+              overlayText: 'With Overlay'
+            }]
+          }, {
+            width: [12, 4, 4],
+            height: [200, 300, 300],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/buildings/800x400',
+
+              link: 'https://vcu.edu',
+              target: '_blank',
+
+              overlayText: 'With Link'
+            }]
+          }
+        ],
+        [
+          {
+            width: [12, 3],
+            height: [200, 300, 200],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/food/800x400'
+            }]
+          }, {
+            width: [12, 3],
+            height: [200, 300, 200],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/technology/800x400'
+            }, {
+              img: 'https://source.unsplash.com/category/objects/800x400'
+            }, {
+              img: 'https://source.unsplash.com/category/people/800x400'
+            }]
+          }, {
+            width: [12, 3],
+            height: [200, 300, 200],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/objects/800x400'
+            }]
+          }, {
+            width: [12, 3],
+            height: [200, 300, 200],
+            innerRows: [{
+              img: 'https://source.unsplash.com/category/nature/800x400'
+            }, {
+              img: 'https://source.unsplash.com/category/food/800x400'
+            }]
+          }
+        ]
+      ]
+    })}}
+  </div>
+
+  <div class="panel-footer">
+    <pre>{% raw %}
+{{masonry.content({
+  id: 'example-masonry',
+  rows: [
+    [
+      {
+        width: [12, 12, 12],
+        height: [200, 500, 500],
+        img: 'https://source.unsplash.com/category/nature/800x400'
+      }
+    ],
+    [
+      {
+        width: [12, 8, 8],
+        height: [200, 300, 300],
+        img: 'https://source.unsplash.com/category/people/800x400',
+
+        overlayText: 'With Overlay'
+      }, {
+        width: [12, 4, 4],
+        height: [200, 300, 300],
+        img: 'https://source.unsplash.com/category/buildings/800x400',
+
+        link: 'https://vcu.edu',
+        target: '_blank',
+
+        overlayText: 'With Link'
+      }
+    ],
+    [
+      {
+        width: [12, 3],
+        height: [200, 300, 200],
+        img: 'https://source.unsplash.com/category/food/800x400'
+      }, {
+        width: [12, 3],
+        height: [200, 300, 200],
+        img: 'https://source.unsplash.com/category/technology/800x400'
+      }, {
+        width: [12, 3],
+        height: [200, 300, 200],
+        img: 'https://source.unsplash.com/category/objects/800x400'
+      }, {
+        width: [12, 3],
+        height: [200, 300, 200],
+        img: 'https://source.unsplash.com/category/nature/800x400'
+      }
+    ]
+  ]
+})}}{% endraw %}</pre>
+  </div>
+</div>

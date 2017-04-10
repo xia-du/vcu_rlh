@@ -1,0 +1,30 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {# accept: a, button, input#}
+  {% set _id = spec.id or '' %}
+  {% set _tag = spec.tag or '' %}
+  {% set _href = spec.href or '#' %}
+  {% set _traget = spec.target or '_self' %}
+  {% set _class = spec.class or '' %}
+  {% set _type = spec.type or 'button' %}
+  {% set _text = spec.text or '' %}
+  {% set _style = spec.style or 'default' %}
+  {% set _attr = spec.attr or '' %}
+
+  {% if _tag == 'a' %}
+    <a
+      class="btn btn-{{_style}} {{_class}}"
+      href="{{_href}}"
+      id="{{_id}}"
+      role="{{_type}}"
+      target="{{_target}}"
+      {{_attr}}
+      >{{_text}}</a>
+  {% elif _tag == 'input' %}
+    <input class="btn btn-{{_style}} {{_class}}" id="{{_id}}" type="{{_type}}" value="{{_text}}" {{_attr}}>
+  {% else  %}
+    <button class="btn btn-{{_style}} {{_class}}" id="{{_id}}" type="{{_type}}" {{_attr}}>{{_text}}</button>
+  {% endif %}
+
+{% endmacro %}

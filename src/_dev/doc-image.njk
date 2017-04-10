@@ -1,0 +1,184 @@
+<h3>Basic image</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{image.content({ src: 'https://source.unsplash.com/category/nature/800x400', alt: 'example image', class: 'img-responsive img-rounded', id: 'example-img', caption: 'This is a image caption' })}}
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/800x400',   // set source
+  alt: 'example image',                                         // set alt text
+  class: 'img-responsive img-rounded',                          // set class name
+  id: 'example-img',                                            // set id
+
+  caption: 'This is a image caption'                            // set caption
+})        </pre>
+  </div>
+</div>
+
+<h3>Image with default overlay</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{image.content({ src: 'https://source.unsplash.com/category/nature/800x400', alt: 'example image with default overaly', class: 'img-responsive', id: 'example-img-default-overlay', overlayText: 'Example image with default overlay' })}}
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/800x400',   // set source
+  alt: 'example image with default overlay',                    // set alt text
+  class: 'img-responsive',                                      // set class name
+  id: 'example-img-default-overlay',                            // set id
+
+  overlayText: 'Example image with default overlay'
+})        </pre>
+  </div>
+</div>
+
+<h3>Image with default overlay and CTA</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{image.content({
+      src: 'https://source.unsplash.com/category/nature/800x400',
+      alt: 'example image with default overaly',
+      class: 'img-responsive',
+      id: 'example-img-default-overlay',
+
+      overlayCta: true,
+      overlayCtaText: 'Learn More',
+      overlayCtaLink: 'https://vcu.edu',
+
+      overlayText: 'Example image with default overlay'
+    })}}
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/800x400',
+  alt: 'example image with default overaly',
+  class: 'img-responsive',
+  id: 'example-img-default-overlay',
+
+  overlayCta: true,
+  overlayCtaText: 'Learn More',
+  overlayCtaLink: 'https://vcu.edu',
+
+  overlayText: 'Example image with default overlay'
+})        </pre>
+  </div>
+</div>
+
+<h3>Image with custom overlay</h3>
+<p>
+  Assign CSS properties to the image module.
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{image.content({ src: 'https://source.unsplash.com/category/nature/800x400', alt: 'example image with custom overaly', class: 'img-responsive', id: 'example-img-custom-overlay', overlayText: 'Example image with custom overlay', overlayFont: 'color:
+    #000; font-family: SummerHeart; font-size: 60px;', overlayAlign: 'left', overlayColor: 'rgba(255, 186, 0, .7)', filter: 'grayscale(1) blur(3px)' })}}
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/800x400',
+  alt: 'example image with custom overaly',
+  class: 'img-responsive',
+  id: 'example-img-custom-overlay',
+
+  overlayText: 'Example image with custom overlay',
+  overlayFont: 'color: #000 ;font-family: SummerHeart; font-size: 60px;',
+  overlayAlign: 'left',
+  overlayColor: 'rgba(255, 186, 0, .7)',
+
+  filter: 'grayscale(1) blur(3px)'
+})        </pre>
+  </div>
+</div>
+
+<h3>Image with overlay caption and description</h3>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{image.content({
+      src: 'https://source.unsplash.com/category/nature/800x400',
+      alt: 'example image with default overaly',
+      class: 'img-responsive',
+      id: 'example-img-default-overlay',
+
+      overlayCaption: true,
+      overlayText: 'Title Text',
+      overlayDescription: 'Description Text could be longer but not too much.'
+    })}}
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/800x400',
+  alt: 'example image with default overaly',
+  class: 'img-responsive',
+  id: 'example-img-default-overlay',
+
+  overlayCaption: true,
+  overlayText: 'Title Text',
+  overlayDescription: 'Description Text could be longer but not too much.'
+})</pre>
+  </div>
+</div>
+
+<h3>Image with hoverable overlay description</h3>
+<p><code>{overlayCaption: true, overlayHoverable: true}</code></p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{image.content({
+      src: 'https://source.unsplash.com/category/nature/800x400',
+      alt: 'example image with default overaly',
+      class: 'img-responsive',
+      id: 'example-img-default-overlay',
+
+      overlayCaption: true,
+      overlayHoverable: true,
+      overlayText: 'Hover over this',
+      overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    })}}
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/800x400',
+  alt: 'example image with default overaly',
+  class: 'img-responsive',
+  id: 'example-img-default-overlay',
+
+  overlayCaption: true,
+  overlayHoverable: true,
+  overlayText: 'Hover over this',
+  overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+})</pre>
+  </div>
+</div>
+
+<h3>Image using background image for full height rows</h3>
+<p>
+  <code>{type: 'background'}</code>
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <div class="full-height-image-example" style="height: 400px">
+      {{image.content({
+        src: 'https://source.unsplash.com/category/nature/1200x900',
+        alt: 'example image with custom overaly',
+        class: 'img-responsive',
+        id: 'example-img-custom-overlay',
+        type: 'background'
+      })}}
+    </div>
+  </div>
+  <div class="panel-footer">
+    <pre>
+image.content({
+  src: 'https://source.unsplash.com/category/nature/1200x900',
+  alt: 'example image with custom overaly',
+  class: 'img-responsive',
+  id: 'example-img-custom-overlay',
+  type: 'background'
+})</pre>
+  </div>
+</div>

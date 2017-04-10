@@ -1,0 +1,32 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {% set _id = spec.id or '' %}
+  {% set _class = spec.class or '' %}
+  {% set _target = spec.target or '' %}
+  {% set _title = spec.title or '' %}
+  {% set _body = spec.body or '' %}
+  {% set _footer = spec.footer or '' %}
+
+  <div class="modal fade {{_class}}" id="{{_id}}" tabindex="-1" role="dialog" aria-labelledby="{{_id}}Label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title" id="{{_id}}Label">{{_title}}</h4>
+        </div>
+        <div class="modal-body">
+          {{_body}}
+        </div>
+        {% if _footer %}
+        <div class="modal-footer">
+          {{_footer}}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+{% endmacro %}

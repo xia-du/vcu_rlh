@@ -1,0 +1,53 @@
+<p>
+  Modal
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{button.content({
+      text:   'Click to show modal',
+      style:  'primary',
+      class: 'btn-lg',
+      attr: 'data-toggle="modal" data-target="#myModal"'
+    })}}
+
+    {% set modalFooter =
+      '<button type="button" class="btn btn-default" data-dismiss="modal">
+        Close
+      </button>
+      <button type="button" class="btn btn-primary">Save changes</button>'
+    %}
+
+    {{modal.content({
+      id: 'myModal',
+      title: 'Modal Title',
+      body: 'Modal Body',
+      footer: modalFooter
+    })}}
+
+  </div>
+  <div class="panel-footer">
+    <pre><xmp>{% raw %}// The button for showing the modal. Attributes must point to the modal's ID.
+{{button.content({
+  text:   'Click to show modal',
+  style:  'primary',
+  class: 'btn-lg',
+  attr: 'data-toggle="modal" data-target="#myModal"'
+})}}
+
+// Set footer content with variable
+{% set modalFooter =
+  '<button type="button" class="btn btn-default" data-dismiss="modal">
+    Close
+  </button>
+  <button type="button" class="btn btn-primary">Save changes</button>'
+%}
+
+// Create modal. ID must point to the button.
+{{modal.content({
+  id: 'myModal',
+  title: 'Modal Title',
+  body: 'Modal Body',
+  footer: modalFooter
+})}}{% endraw %}</xmp></pre>
+  </div>
+</div>

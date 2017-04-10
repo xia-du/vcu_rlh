@@ -1,0 +1,83 @@
+{# Description #}
+<p>
+  Please checkout the navigation bar on top of this page for the full functionality.
+</p>
+<p>
+  <strong>Features:</strong>
+  <ul>
+    <li>Responsive style</li>
+    <li>Side menu (mobile)</li>
+    <li>Search bar (mobile)</li>
+    <li>Optional secondary navigation on mobile and desktop
+      <ul>
+        <li>Animated jump to in-page anchors</li>
+        <li>Detects scrolling and highlights labels</li>
+      </ul>
+    </li>
+  </ul>
+</p>
+<p>
+  Try to resize the browser to see the responsive features.
+</p>
+
+{# Content #}
+{% set pageNav =
+  [{
+    name: 'typography',
+    link: '#typography'
+  }, {
+    name: 'link',
+    link: '#link'
+  }, {
+    name: 'image',
+    link: '#image'
+  }, {
+    name: 'carousel',
+    link: '#carousel'
+  }, {
+    name: 'header',
+    link: '#header'
+  }, {
+    name: 'navigation',
+    link: '#navigation'
+  }]
+%}
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{navigation.content({
+      env: site.data,
+      secondaryItems: pageNav
+    })}}
+  </div>
+  <div class="panel-footer">
+    <pre>{% raw %}
+{% set pageNav =
+  [{
+    name: 'typography',
+    link: '#typography'
+  }, {
+    name: 'link',
+    link: '#link'
+  }, {
+    name: 'image',
+    link: '#image'
+  }, {
+    name: 'carousel',
+    link: '#carousel'
+  }, {
+    name: 'header',
+    link: '#header'
+  }, {
+    name: 'navigation',
+    link: '#navigation'
+  }]
+%}
+
+{{navigation.content({
+    env: site.data,
+    secondaryItems: pageNav
+  })
+}}{% endraw %}</pre>
+  </div>
+</div>

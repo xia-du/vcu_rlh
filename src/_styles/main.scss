@@ -1,0 +1,85 @@
+// Settings
+@import 'partials/variables';
+@import 'partials/fonts';
+@import 'partials/typography';
+@import 'partials/layout';
+
+// Page CSS
+@import 'home';
+@import 'halls';
+@import 'room';
+@import 'application';
+@import 'life_on_campus';
+
+// Libs
+// Bootstrap
+// Using customized bootstrap
+@import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+// Slick carousel
+$slick-loader-path: '../images/';
+@import 'bower_components/slick-carousel/slick/slick.scss';
+@import 'bower_components/slick-carousel/slick/slick-theme.scss';
+// Animate.css
+@import 'bower_components/animate.css/animate';
+
+// Import Modules
+@import '../_modules/link/link';
+@import '../_modules/image/image';
+@import '../_modules/button/button';
+@import '../_modules/header/header';
+@import '../_modules/footer/footer';
+@import '../_modules/navigation/navigation';
+@import '../_modules/carousel/carousel';
+@import '../_modules/help/help';
+@import '../_modules/modal/modal';
+@import '../_modules/masonry/masonry';
+@import '../_modules/accordion/accordion';
+
+// Typography
+h1 {
+  font-size: 36px;
+}
+
+p {
+  font-size: 16px;
+}
+
+// Custom styles
+hr {
+  &.hr-primary {
+    border-top: $border-bold solid $brand-primary;
+  }
+}
+
+// Form & Input
+
+// Styling on warning for users on IE7 or below
+.browsehappy {
+  margin: 0;
+  padding: .5em 0;
+
+  text-align: center;
+
+  color: #000;
+  background: #fff8e2;
+}
+
+// Tweaks
+.vcu-branding-bar {
+  border-bottom: 1px solid $white !important;
+}
+
+iframe {
+    border: none;
+    width: 100%;
+}
+
+@media (min-width: $screen-sm) {
+  body.modal-open {
+    padding-right: 15px !important;
+    nav,
+    .desktop-secondary {
+      padding-right: 15px !important;
+    }
+  }
+}

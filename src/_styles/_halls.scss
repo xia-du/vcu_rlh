@@ -1,0 +1,70 @@
+// Halls page styles
+
+.halls {
+  #map {
+    width: 100%;
+    height: 100%;
+  }
+
+  figure {
+    .img-wrap {
+      .img-overlay {
+        .overlay-text p {
+          color: $brand-primary;
+        }
+      }
+    }
+  }
+
+  .section-masonry {
+    .hall-types {
+      margin-bottom: 7.5px;
+      padding: 0 15px;
+
+      .mobile {
+        .dropdown-menu {
+          width: 100%;
+
+          text-align: center;
+
+          li {
+            font-family: $font-family-heading;
+            font-size: 18px;
+            a {
+              padding: 14px;
+            }
+          }
+        }
+      }
+
+      .desktop {
+        .btn-primary {
+          &:hover, &:focus {
+            color: #fff;
+            border-color: #e6a700;
+            background-color: $brand-primary;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xs) {
+  .halls {
+  }
+}
+@media (min-width: $screen-sm) {
+  .halls {
+    .section-masonry {
+      .hall-types {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+}
+@media (min-width: $screen-lg) {
+}

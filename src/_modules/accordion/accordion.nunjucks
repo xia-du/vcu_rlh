@@ -1,0 +1,53 @@
+{% macro content(spec) %}
+
+  {% set spec = spec or {} %}
+  {% set _id = spec.id or '' %}
+  {% set _class = spec.class or '' %}
+  {% set _items = spec.items or '' %}
+
+  <div class="accordion {{_class}}" id="{{_id}}" role="tablist" aria-multiselectable="true">
+    {% for item in _items %}
+      {% set index = loop.index %}
+      <div class="accordion-item">
+
+        <div class="accordion-heading" role="tab" id="{{_id}}-heading-{{index}}" data-toggle="collapse" data-parent="{{'#' + id}}" href="#{{_id}}-collapse-{{index}}" aria-expanded="true" aria-controls="{{_id}}-collapse-{{index}}">
+
+          <div class="row">
+            <div class="col-xs-10">
+              <h4 class="accordion-title">
+                <a role="button">
+                  {{item.heading}}
+                </a>
+              </h4>
+            </div>
+
+            <div class="accordion-collapse-icon col-xs-2">
+              <a class="toggle-btn" role="button">
+                <i class="fa fa-angle-up" aria-hidden="true"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="row">
+          <div id="{{_id}}-collapse-{{index}}" class="col-xs-12 accordion-collapse collapse {{item.state}}" role="tabpanel" aria-labelledby="{{_id}}-heading-{{index}}">
+            <div class="accordion-body">
+              {{item.body}}
+            </div>
+          </div>
+        </div>
+
+        {% if loop.index < _items.length %}
+          <div class="row">
+            <div class="col-xs-12">
+              <hr>
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    {% endfor %}
+
+  </div>
+
+{% endmacro %}

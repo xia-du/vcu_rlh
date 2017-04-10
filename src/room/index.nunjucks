@@ -1,0 +1,465 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/help/help.nunjucks" as help %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="room">
+
+    <section class="section-carousel">
+      <div class="carousel">
+        {{ carousel.content({
+          class: 'thumbnails',
+          id: 'example-carousel-with-thumbnails',
+          imgs: [{
+            src: 'https://unsplash.it/1600/900?image=0',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=10',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=20',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=30',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=40',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=50',
+            alt: 'slide 1'
+          }]
+        })}}
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="hall-title col-xs-12">
+            <h1>
+              Ackell Residence Center
+            </h1>
+            <hr class="hr-primary">
+          </div>
+        </div>
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Description</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <p>Bright, comfy private room, large queen size orthopedic mattress, wifi, emf blockers also, laundry 1 block away, cable, share large bathroom, welcome to bring groceries and use the kitchen appliances,etc to make meals. Heat and ac works great.</p>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Hall Details</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <ul>
+              <li>
+                <strong class="ul-heading">Contract:</strong>
+                <span class="ul-body">9-month contract for freshmen</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Demographic:</strong>
+                <span class="ul-body">Upperclassmen and freshmen</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Hall Type:</strong>
+                <span class="ul-body">Apartment Style</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Building Style:</strong>
+                <span class="ul-body">4-story</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Unit Style:</strong>
+                <span class="ul-body"> 4-person apartments with single bedrooms</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Capacity:</strong>
+                <span class="ul-body">394</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Dining plan:</strong>
+                <span class="ul-body">Not required</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Theme Community</h4>
+          </div>
+          <div class="col-xs-12 col-sm-9">
+            <div class="row">
+              <div class="image-wrap col-xs-6 col-xs-offset-3 col-sm-3 col-sm-offset-0">
+                {{image.content({
+                  src: '/images/theme_communities/art-colony-4c.svg'
+                })}}
+              </div>
+              <div class="body col-xs-12 col-sm-9">
+                <p>Bright, comfy private room, large queen size orthopedic mattress, wifi, emf blockers also, laundry 1 block away, cable, share large bathroom, welcome to bring groceries and use the kitchen appliances,etc to make meals. Heat and ac works great.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            {{link.content({
+              text:   'Learn More +',
+              href:   'https://google.com/',
+              target: '_blank'
+            })}}
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Amentities</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9 col-num-2">
+            <ul>
+              <li>
+                <span class="ul-body">24-hour security</span>
+              </li>
+              <li>
+                <span class="ul-body">Air-conditioned</span>
+              </li>
+              <li>
+                <span class="ul-body">Coeducational</span>
+              </li>
+              <li>
+                <span class="ul-body">Housekeeping for common areas</span>
+              </li>
+              <li>
+                <span class="ul-body">Laundry in unit</span>
+              </li>
+              <li>
+                <span class="ul-body">Secured with VCUCard access</span>
+              </li>
+              <li>
+                <span class="ul-body">TV Lounge</span>
+              </li>
+              <li>
+                <span class="ul-body">Courtyard</span>
+              </li>
+              <li>
+                <span class="ul-body">Wifi</span>
+              </li>
+              <li>
+                <span class="ul-body">Streaming TV service</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+
+            {{link.content({
+              text:   'Learn More +',
+              href:   'https://google.com/',
+              target: '_blank'
+            })}}
+
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Unit Features</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9 col-num-2">
+            <ul>
+              <li>
+                <span class="ul-body">Carpeted</span>
+              </li>
+              <li>
+                <span class="ul-body">Fully furnished</span>
+              </li>
+              <li>
+                <span class="ul-body">Full-size kitchen</span>
+              </li>
+              <li>
+                <span class="ul-body">Coffee table</span>
+              </li>
+              <li>
+                <span class="ul-body">Sofa</span>
+              </li>
+              <li>
+                <span class="ul-body">End tables</span>
+              </li>
+              <li>
+                <span class="ul-body">Living room chair</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            {{link.content({
+              text:   'Learn More +',
+              href:   'https://google.com/',
+              target: '_blank'
+            })}}
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Bath</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <p>2 bathrooms per unit</p>
+            <p>(Each bathroom is furnished with one toilet and one shower. Shower curtains are provided)</p>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Bedroom Features</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <ul>
+              <li>Desk</li>
+              <li>Chair</li>
+              <li>Dresser</li>
+              <li>Closet</li>
+            </ul>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info full-width">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Video Tour</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe src="https://player.vimeo.com/video/157296657?title=0&byline=0&portrait=0&badge=0&color=ffba00" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            </div>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Roommates</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <p>Students are assigned with 4 roommates in each dorm. Students can apply to change roommates.</p>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            {{link.content({
+              text:   'Learn More +',
+              href:   'https://google.com/',
+              target: '_blank'
+            })}}
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Floor Plan</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            {{button.content({
+              tag: 'a',
+              class: 'btn-lg',
+              style: 'info',
+              text: 'Download&nbsp;&nbsp;&nbsp;<i class="fa fa-file-pdf-o"></i>',
+              link: '#',
+              target: '_blank'
+            })}}
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Rates</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            {{button.content({
+              tag: 'a',
+              class: 'btn-lg',
+              style: 'info',
+              text: 'Download&nbsp;&nbsp;&nbsp;<i class="fa fa-file-pdf-o"></i>',
+              link: '#',
+              target: '_blank'
+            })}}
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Hall Rules</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            {{button.content({
+              tag: 'a',
+              class: 'btn-lg',
+              style: 'info',
+              text: 'Download&nbsp;&nbsp;&nbsp;<i class="fa fa-file-pdf-o"></i>',
+              link: '#',
+              target: '_blank'
+            })}}
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+        <!--Room info-->
+        <div class="row room-info">
+          <div class="heading col-xs-12 col-sm-3">
+            <h4>Contact</h4>
+          </div>
+          <div class="body col-xs-12 col-sm-9">
+            <ul>
+              <li>
+                <strong class="ul-heading">Hall Director: </strong>
+                <span class="ul-body"><br>David Draper</span>
+              </li>
+              <li>
+                <strong class="ul-heading">Hall Contact Information: </strong>
+                <span class="ul-body"><br>1100 W. Broad St. <br>Richmond Va, 23220 <br>(804) 827-0383</span>
+              </li>
+            </ul>
+          </div>
+          <div class="footer col-xs-12 col-sm-9 col-sm-offset-3">
+            <hr>
+          </div>
+        </div>
+        <!--End of room info-->
+
+      </div>
+    </section>
+
+    <section class="section-carousel">
+      {{carousel.content({
+        class: 'default with-border',
+        imgs: [{
+          src: 'https://unsplash.it/1600/900?image=0',
+          alt: 'mobile slide 1',
+          overlay: {
+            title: 'Example Title',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+            cta: {
+              text: 'Learn More',
+              link: '#'
+            }
+          }
+        }, {
+          src: 'https://unsplash.it/1600/900?image=1',
+          alt: 'mobile slide 2',
+          overlay: {
+            title: 'Example Title',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+            cta: {
+              text: 'Learn More',
+              link: '#'
+            }
+          }
+        }, {
+          src: 'https://unsplash.it/1600/900?image=2',
+          alt:'mobile slide 3',
+          overlay: {
+            title: 'Example Title',
+            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+            cta: {
+              text: 'Learn More',
+              link: '#'
+            }
+          }
+        }]
+      })}}
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
+
+{% endblock %}

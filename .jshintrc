@@ -1,0 +1,10 @@
+{
+  "latedef": true,
+  "esversion": 6,
+  "strict": false,
+  "nonew": true,
+  "unused": true,
+  "node": true,
+  "browser": true,
+  "jquery": true
+}

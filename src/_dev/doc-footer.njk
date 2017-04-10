@@ -1,0 +1,20 @@
+<p>
+  Responsive footer.
+</p>
+
+<p>
+  <code>footer.content({spec})</code>
+</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{footer.content({
+      env: site.data
+    })}}
+  </div>
+  <div class="panel-footer">
+    <pre>{% raw %}
+{{footer.content({
+  env: site.data
+})}}{% endraw %}</pre>
+  </div>
+</div>

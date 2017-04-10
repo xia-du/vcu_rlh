@@ -1,0 +1,22 @@
+{# Description #}
+<p>
+  Responsive header. Change browser width to preview.
+</p>
+<p class="text-warning">
+  <i class="fa fa-warning"></i> <strong>The border is shown here becasue of white background. It is not included in the module.</strong>
+</p>
+{# Content #}
+
+<div class="panel panel-default">
+  <div class="panel-body">
+    {{header.content({
+      env: site.data
+    })}}
+  </div>
+  <div class="panel-footer">
+    <pre>{% raw %}
+{{header.content({
+  env: site.data      // global environment data
+})}}{% endraw %}</pre>
+  </div>
+</div>

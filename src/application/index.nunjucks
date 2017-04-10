@@ -1,0 +1,402 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% set secondaryNav = [{
+    name: 'Why Living on Campus',
+    link: '#why_living_on_campus'
+  }, {
+    name: 'How to Apply',
+    link: '#application_process'
+}] %}
+
+{% block scripts %}
+  <script src="/scripts/pages/application.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data,
+    secondaryItems: secondaryNav,
+    active: 'application'
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block content %}
+    <div class="application">
+      <section class="section-hero">
+        <div class="hero">
+          {{image.content({
+            src: '/images/application_hero.jpg',
+            alt: 'Application page hero-image',
+            id: 'home-carousel',
+            type: 'background',
+
+            overlayText: '<h1 style="color: #fff">HOUSING APPLICATION</h1>',
+            overlayColor: 'rgba(0, 0, 0, .3)',
+
+            overlayCta: true,
+            overlayCtaText: 'Apply Now',
+            overlayCtaLink: 'https://vcu.edu'
+          })}}
+        </div>
+      </section>
+
+      <section id="why_living_on_campus">
+        <div class="container">
+          <div class="title hidden-xs">
+            <h2>
+              WHY LIVING ON CAMPUS?
+            </h2>
+          </div>
+          <div class="row">
+            <div class="mobile visible-xs-block">
+              <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                <div class="row">
+                  <div class="col-md-10 col-md-offset-1">
+                    {{accordion.content({
+                      id: 'why-accordion',
+                      items: [{
+                        state: '',
+                        heading: 'Why Living on Campus?',
+                        body: '<p>
+                                Welcome to Residential Life & Housing! There is no better way to become immersed in the VCU experience, meet your academic goals, and experience a lifestyle that allows for personal exploration and development. Living on-campus allows a special inter-connectedness with fellow students and the larger University community. Our chief concern is your academic success and providing opportunities for you to impact your community.
+                              </p>
+                              <p>
+                                Students who live on-campus are more likely to interact with faculty outside of the classroom, attend cultural events, seek employment on campus, and participate in clubs and organizations. Being involved allows for a deeper University experience, personal development, strong social networks, and increased opportunities for intellectual, physical, and academic growth.
+                              </p>
+                              <p>
+                                I invite you to be an active member of your residential community, benefitting personally and impacting positively thecommunities you are a part of. We have high expectations for student success in our communities and know your leadership, civility, and personal responsibility will enhance this learning and living environment. We provide a living experience that values community connections, rich diversity, discussion of ideas, and celebration of our individual differences and commonalities.
+                              </p>
+                              <p>
+                                There is an entire community of staff who are here to support you, so do not hesitate to reach out and contact us with questions. Your safety, comfort, and opportunities for growth and success are facilitated by numerous student and professional staff who are more than willing to assist in your on-campus experience.
+                              </p>
+                              <p>
+                                Welcome to VCU residential living!
+                              </p>'
+                      }]
+                    })}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mobile hidden-xs">
+              <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
+                        <span class="decoration-heading">
+                          WELCOME
+                        </span>
+                      </div>
+
+                      <!--Main content-->
+                      <div class="main-content col-md-7 col-lg-6 col-lg-offset-1">
+                        <div class="body">
+                          <p>
+                            Welcome to Residential Life & Housing! There is no better way to become immersed in the VCU experience, meet your academic goals, and experience a lifestyle that allows for personal exploration and development. Living on-campus allows a special inter-connectedness with fellow students and the larger University community. Our chief concern is your academic success and providing opportunities for you to impact your community.
+                          </p>
+                          <p>
+                            Students who live on-campus are more likely to interact with faculty outside of the classroom, attend cultural events, seek employment on campus, and participate in clubs and organizations. Being involved allows for a deeper University experience, personal development, strong social networks, and increased opportunities for intellectual, physical, and academic growth.
+                          </p>
+                          <p>
+                            I invite you to be an active member of your residential community, benefitting personally and impacting positively thecommunities you are a part of. We have high expectations for student success in our communities and know your leadership, civility, and personal responsibility will enhance this learning and living environment. We provide a living experience that values community connections, rich diversity, discussion of ideas, and celebration of our individual differences and commonalities.
+                          </p>
+                          <p>
+                            There is an entire community of staff who are here to support you, so do not hesitate to reach out and contact us with questions. Your safety, comfort, and opportunities for growth and success are facilitated by numerous student and professional staff who are more than willing to assist in your on-campus experience.
+                          </p>
+                          <p>
+                            Welcome to VCU residential living!
+                          </p>
+                        </div>
+                      </div>
+                      <!--End of main content-->
+                      <!--Side gallery-->
+                      <div class="side-gallery col-sm-12 col-md-5 col-lg-4">
+                        <div class="side-gallery-wrap">
+                          <div class="row">
+                            <div class="col-sm-4 col-md-12">
+                              {{image.content({
+                                src: 'https://source.unsplash.com/category/nature/800x600',
+                                alt: 'application gallery image',
+                                class: 'img-responsive',
+
+                                overlayCaption: true,
+                                overlayText: 'Students Volunteer in Tricycle Garden',
+                                overlayFont: 'font-size: 14px',
+                                overlayStyle: 'padding: 10px;'
+                              })}}
+                            </div>
+
+                            <div class="col-sm-4 col-md-12">
+                              {{image.content({
+                                src: 'https://source.unsplash.com/category/people/800x600',
+                                alt: 'application gallery image',
+                                class: 'img-responsive',
+
+                                overlayCaption: true,
+                                overlayText: 'Another Image Here',
+                                overlayFont: 'font-size: 14px',
+                                overlayStyle: 'padding: 10px;'
+                              })}}
+                            </div>
+
+                            <div class="col-sm-4 col-md-12">
+                              {{image.content({
+                                src: 'https://source.unsplash.com/category/objects/800x600',
+                                alt: 'application gallery image',
+                                class: 'img-responsive',
+
+                                overlayCaption: true,
+                                overlayText: 'Another Image Here',
+                                overlayFont: 'font-size: 14px',
+                                overlayStyle: 'padding: 10px;'
+                              })}}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <!--End of side gallery-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section-gray-lighter" id="application_process">
+        <div class="container">
+          <div class="title">
+            <h2>
+              Application Process
+            </h2>
+          </div>
+
+          <div class="row" id="process-tabs">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="btn-group btn-group-justified" role="group">
+                      <div class="btn-group" role="group">
+                        <button type="button" class="btn process-tabs-btn btn-primary" id="incoming-btn">
+                          Incoming Students
+                        </button>
+                      </div>
+                      <div class="btn-group" role="group">
+                        <button type="button" class="btn process-tabs-btn btn-default" id="returning-btn">
+                          Returning Students
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row animated" id="incoming-students-process">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+                {% set steps = [
+                  {
+                    icon: 'mail',
+                    color: '#77b3d4',
+                    body: 'Get accepted to VCU.'
+                  }, {
+                    icon: 'compose',
+                    color: '#76c2af',
+                    body: 'Accept the offer to attend VCU. You will receive your eID, which is used to log in to the Housing Application.'
+                  }, {
+                    icon: 'computer',
+                    color: '#d88361',
+                    body: 'Apply online. (Applications open November 9 at noon.)'
+                  }, {
+                    icon: 'cursor',
+                    color: '#ffba00',
+                    body: 'Go to the confirmation page in the Housing Application and review your application and click save. Check your VCU email for a confirmation email that your application is complete.'
+                  }
+                ] %}
+
+                {% for item in steps %}
+                <div class="process row">
+                  <div class="process-heading col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
+                    <div class="row">
+                      <div class="col-xs-2 col-sm-3 col-md-4">
+                        <span class="step-num" style="color: {{item.color}};">{{loop.index}}.</span>
+                      </div>
+                      <div class="col-xs-8">
+                        <span class="step-icon">
+                          {{image.content({
+                            src: '/images/application/step_' + item.icon + '.svg'
+                          })}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="process-body col-xs-12 col-sm-9 col-md-7">
+                    <p>
+                      {{item.body}}
+                    </p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+
+          <div class="row animated" id="returning-students-process">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+
+                {% set steps = [
+                  {
+                    icon: 'computer',
+                    color: '#d88361',
+                    body: 'Apply online. (Applications open November 9 at noon.)'
+                  }, {
+                    icon: 'cursor',
+                    color: '#ffba00',
+                    body: 'Go to the confirmation page in the Housing Application and review your application and click save. Check your VCU email for a confirmation email that your application is complete.'
+                  }
+                ] %}
+
+                {% for item in steps %}
+                <div class="process row">
+                  <div class="process-heading col-xs-12 col-sm-3 col-md-3 col-md-offset-1">
+                    <div class="row">
+                      <div class="col-xs-2 col-sm-3 col-md-4">
+                        <span class="step-num" style="color: {{item.color}};">{{loop.index}}.</span>
+                      </div>
+                      <div class="col-xs-8">
+                        <span class="step-icon">
+                          {{image.content({
+                            src: '/images/application/step_' + item.icon + '.svg'
+                          })}}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="process-body col-xs-12 col-sm-9 col-md-7">
+                    <p>
+                      {{item.body}}
+                    </p>
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+      </section>
+
+      <section id="faq">
+        <div class="container">
+
+          <div class="title">
+            <h2>
+              FAQ
+            </h2>
+          </div>
+
+          <div class="row faq-row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <h3>Incoming Students</h3>
+                  {# <hr class="hr-primary"> #}
+                  {{accordion.content({
+                    id: 'incoming-accordion',
+                    items: [{
+                      state: '',
+                      heading: 'Building Preferences',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Housing options',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Signing the Housing Contract',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Room assignment notifications',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Canceling a housing assignment',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Roommates',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }]
+                  })}}
+                </div>
+              </div>
+              </div>
+          </div>
+
+          <div class="row faq-row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <h3>Returning Students</h3>
+                  {# <hr class="hr-primary"> #}
+                  {{accordion.content({
+                    id: 'returning-accordion',
+                    items: [{
+                      state: '',
+                      heading: 'Upperclassmen transfer and graduate students',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Room change',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Graduating',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }, {
+                      heading: 'Withdrawing / transfering',
+                      body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>'
+                    }]
+                  })}}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section-help_center">
+        {{help.content()}}
+      </section>
+    </div>
+
+{% endblock %}

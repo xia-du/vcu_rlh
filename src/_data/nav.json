@@ -1,0 +1,19 @@
+[{
+  "name": "home",
+  "link": "/"
+}, {
+  "name": "halls",
+  "link": "/halls"
+}, {
+  "name": "life on campus",
+  "link": "/life_on_campus"
+}, {
+  "name": "application",
+  "link": "/application"
+}, {
+  "name": "about",
+  "link": "/about"
+}, {
+  "name": "contact",
+  "link": "/contact"
+}]

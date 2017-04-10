@@ -1,0 +1,130 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/help/help.nunjucks" as help %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data,
+    active: 'home'
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block content %}
+
+  <div class="home">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{carousel.content({
+          id: 'home-carousel',
+          type: 'background',
+          imgs: [{
+            src: 'https://unsplash.it/1600/900?image=0',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=10',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=20',
+            alt: 'slide 1'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=60',
+            alt: 'slide 1' }]
+          })}}
+      </div>
+    </section>
+
+    <section class="section-masonry">
+      <div class="container">
+        <div class="row">
+          {{masonry.content({
+            id: 'example-masonry',
+            rows: [ [ {
+              width: [12, 12, 12],
+              height: [200, 400, 400, 400],
+              innerRows: [{
+                img: 'https://source.unsplash.com/category/nature/800x400'
+              }]
+            } ], [ {
+              width: [12, 8, 8],
+              height: [200, 300, 300],
+              innerRows: [{
+                img: 'https://source.unsplash.com/category/people/800x400',
+                overlayText: 'With Overlay'
+              }]
+            }, {
+              width: [12, 4, 4],
+              height: [200, 300, 300],
+              innerRows: [{
+                img: 'https://source.unsplash.com/category/buildings/800x400',
+                link: 'https://vcu.edu',
+                target: '_blank',
+                overlayText: 'With Link'
+              }]
+            } ] ]
+          })}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-mobile_cta visible-xs-block visible-sm-block">
+      <div class="container">
+        <div class="mobile-cta-wrap row">
+          <div class="col-xs-12 col-sm-6">
+            {{button.content({
+              tag:    'a',
+              text:  'Residential Life',
+              style: 'primary',
+              class: 'btn-lg col-xs-12',
+              href:   'https://google.com/',
+              target: '_blank'
+            })}}
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            {{button.content({
+              tag:    'a',
+              text:  'Application',
+              style: 'primary',
+              class: 'btn-lg col-xs-12',
+              href:   'https://google.com/',
+              target: '_blank'
+            })}}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
+
+{% endblock %}
