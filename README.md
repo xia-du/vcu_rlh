@@ -1,22 +1,24 @@
-# Vcu-Rlh-Website readme
-
-Generated on 2017-02-27 using [generator-yeogurt@2.0.0](https://github.com/larsonjj/generator-yeogurt)
+# VCU Residential Life And Housing Website
 
 ## Description
 
-This is an example readme file. Describe your site/app here.
+Front-end templates for the redesigned VCU Residential Life And Housing Website.
 
 ## Technologies used
 
+Scaffolding
+
+- [Yeoman](http://yeoman.io/)
+
+Generator
+
+- [generator-yeogurt@2.0.0](https://github.com/larsonjj/generator-yeogurt)
+
 JavaScript
 
-- [Browserify](http://browserify.org/) with ES6/2015 support through [Babel](https://babeljs.io/)
+- [Browserify](http://browserify.org/) with ES6/2015 support through
+- [Babel](https://babeljs.io/)
 - [Node](https://nodejs.org/)
-
-Testing
-
-- [Karma](http://karma-runner.github.io/0.13/index.html)
-- [Jasmine](http://jasmine.github.io/)
 
 Styles
 
@@ -306,4 +308,4 @@ Which outputs to:
 
 ## License
 
-[MIT License](LICENSE.md) - © Xia Du and Mason Brown
+[MIT License](LICENSE.md) - © Xia Du
