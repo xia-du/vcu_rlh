@@ -61,7 +61,8 @@
             id: 'home-carousel',
             type: 'background',
 
-            overlayText: '<h1 style="color: #fff">HOUSING APPLICATION</h1>',
+            overlayText: '<h1>HOUSING APPLICATION</h1>',
+            overlayTextWithTag: true,
             overlayColor: 'rgba(0, 0, 0, .3)',
 
             overlayCta: true,
@@ -115,7 +116,7 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="row">
-                      <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1">
+                      <div class="col-sm-12 col-md-12 col-lg-10 col-lg-offset-1 ">
                         <span class="decoration-heading">
                           WELCOME
                         </span>
@@ -200,6 +201,7 @@
 
       <section class="section-gray-lighter" id="application_process">
         <div class="container">
+
           <div class="title">
             <h2>
               Application Process

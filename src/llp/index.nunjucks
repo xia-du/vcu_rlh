@@ -1,0 +1,414 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% set secondaryNav = [{
+    name: 'What\'s LLP',
+    link: '#what-is-llp'
+  }, {
+    name: 'Testimonials',
+    link: '#testimonials'
+  }, {
+    name: 'Events',
+    link: '#events'
+  }, {
+    name: 'Programs',
+    link: '#programs'
+  }]
+%}
+
+{% set events = [
+  {
+    month: 'OCT',
+    day: '26',
+    name: 'QUIZ BOWL',
+    id: 'event-ram_night_madness',
+    time: '7 PM to 10 PM',
+    location: 'Cary Street Gym',
+    openTo: 'LLP students only',
+    imageLink: 'https://unsplash.it/800/600?image=0',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    month: 'OCT',
+    day: '27',
+    name: 'LLP DAY ON THE COMPASS',
+    id: 'event-geo_affair',
+    time: '9 AM to 12 PM',
+    location: '912 W. Grace St.',
+    openTo: 'All students',
+    imageLink: 'https://unsplash.it/800/600?image=10',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    month: 'OCT',
+    day: '28',
+    name: 'Halloween Service Event',
+    id: 'event-ram_capm',
+    time: '4 PM to 8 PM',
+    location: 'Student Commons',
+    openTo: 'LLP students only',
+    imageLink: 'https://unsplash.it/800/600?image=20',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    month: 'OCT',
+    day: '30',
+    name: 'Fall Keynote',
+    id: 'event-event_name_4',
+    time: '9 AM to 12 PM',
+    location: '912 W. Grace St.',
+    openTo: 'All students',
+    imageLink: 'https://unsplash.it/800/600?image=30',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    month: 'NOV',
+    day: '1',
+    name: 'LLP CRAWL',
+    id: 'event-event_name_5',
+    time: '4 PM to 8 PM',
+    location: 'Student Commons',
+    openTo: 'All students',
+    imageLink: 'https://unsplash.it/800/600?image=40',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }
+] %}
+
+{% set testimonials =
+  [{
+    img: 'https://unsplash.it/800/600?image=400',
+    quote: {
+      body: 'Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.',
+      name: 'Austin Buchanan',
+      title: 'ASPiRE member'
+    }
+  }, {
+    img: 'https://unsplash.it/800/600?image=500',
+    quote: {
+      body: 'Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.',
+      name: 'Austin Buchanan',
+      title: 'ASPiRE member'
+    }
+  }, {
+    img: 'https://unsplash.it/800/600?image=600',
+    quote: {
+      body: 'Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.',
+      name: 'Austin Buchanan',
+      title: 'ASPiRE member'
+    }
+  }]
+%}
+
+
+{% block scripts %}
+<script src="/scripts/pages/llp.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data,
+    secondaryItems: secondaryNav
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block content %}
+    <div class="llp">
+      <section class="section-hero">
+        <div class="hero">
+          {{image.content({
+            src: '/images/application_hero.jpg',
+            alt: 'Application page hero-image',
+            id: 'home-carousel',
+            type: 'background',
+            overlayText: '<h1>Living Learning Programs</h1>',
+            overlayTextWithTag: true,
+            overlayFont: 'font-family: SummerHeart;',
+            overlayColor: 'rgba(91, 193, 157, .5)'
+          })}}
+        </div>
+      </section>
+
+      <section id="what-is-llp">
+        <div class="container">
+
+          {# <div class="title">
+            <h2>
+              Title
+            </h2>
+          </div> #}
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-3 col-md-3">
+                      <div class="llp-logo">
+                        {{image.content({
+                          src: '/images/llp/llp_logo.svg',
+                          alt: 'llp logo'
+                        })}}
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-9 col-md-9">
+                    <p class="lead">
+                      Living-Learning Communities are designed to integrate unique on-campus living with a focused academic experience. The mix of curricular and co-curricular activities enables students to apply classroom learning in real-world experiences.
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-separator">
+        <hr class="hr-primary left">
+      </section>
+
+      <section id="why-join">
+        <div class="container">
+
+          <div class="title">
+            <h2>
+              Why Should I Join?
+            </h2>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p>Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-padding section-gray-lighter" id="testimonials">
+
+          <div id="testimonial-slider">
+            {% for item in testimonials %}
+            <div class="row no-gutter table-row">
+              <div class="testimonial-img-wrap col-xs-12 col-sm-6">
+                {{image.content({
+                  src: item.img,
+                  alt: 'testimonial image',
+                  type: 'background'
+                })}}
+              </div>
+              <div class="col-xs-12 col-sm-6">
+                <section class="testimonial-body">
+                  <blockquote class="blockquote">
+                    <p>
+                      {{item.quote.body}}
+                    </p>
+                    <footer><strong>{{item.quote.name}}</strong>
+                      <cite title="Source Title">{{item.quote.title}}</cite>
+                    </footer>
+                  </blockquote>
+                </section>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+
+      </section>
+
+      <section class="section-events" id="events">
+        <div class="title">
+          <h2>
+            LLP Events
+          </h2>
+        </div>
+
+        <div class="row">
+          <div class="events-slider" id="events-slider">
+
+            {% for event in events %}
+            <div class="events-slide" data-target="#event-{{loop.index}}" id="{{event.id}}">
+
+              <div class="date">
+                <div class="month">
+                  <span>
+                    {{event.month}}
+                  </span>
+                </div>
+
+                <div class="day">
+                  <span>
+                    {{event.day}}
+                  </span>
+                </div>
+              </div>
+
+              <div class="name">
+                <h4>
+                  {{event.name}}
+                </h4>
+              </div>
+
+              <div class="detail">
+                <div class="time">
+                  <p>
+                    {{event.time}}
+                  </p>
+                </div>
+                <div class="location">
+                  <p>
+                    {{event.location}}
+                  </p>
+                </div>
+                <div class="open-to">
+                  <p>
+                    {{event.openTo}}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section-gray-lighter" id="events-info">
+        <div class="container">
+          <div id="events-info-slider">
+            {% for event in events %}
+              <div class="row events-info" id="event-{{loop.index}}">
+                <div class="col-xs-12 col-sm-4 events-image">
+                  {{image.content({
+                    src: event.imageLink,
+                    alt: 'event image'
+                  })}}
+                </div>
+                <div class="col-xs-12 col-sm-8 events-description">
+                  <p>
+                    {{event.description}}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-masonry" id="programs">
+        <div class="container">
+          <div class="title">
+            <h2>
+              Programs
+            </h2>
+          </div>
+          <div class="row">
+            {{masonry.content({
+              id: 'llp-programs-masonry',
+              rows: [
+                [
+                  {
+                    width: [12, 7],
+                    height: [200, 300],
+                    innerRows: [{
+                      img: 'https://source.unsplash.com/category/nature/800x400',
+
+                      link: 'http://www.global.vcu.edu/vcuglobe/',
+                      target: '_blank',
+
+                      overlayText: 'Globe',
+                      overlayFont: 'font-family: SummerHeart; font-size: 60px;',
+                      overlayColor: 'rgba(0, 168, 207, .5)',
+                      overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                    }]
+                  }, {
+                    width: [12, 5],
+                    height: [200, 300],
+                    innerRows: [{
+                      img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                      link: 'http://aspire.vcu.edu/',
+                      target: '_blank',
+
+                      overlayText: 'ASPiRE',
+                      overlayFont: 'font-family: SummerHeart; font-size: 60px;',
+                      overlayColor: 'rgba(204, 120, 81, .5)',
+                      overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.'
+                    }]
+                  }
+                ], [
+                  {
+                    width: [12, 5],
+                    height: [200, 300],
+                    innerRows: [{
+                      img: 'https://source.unsplash.com/category/people/800x400',
+
+                      link: 'https://students.vcu.edu/vculead/',
+                      target: '_blank',
+
+                      overlayText: 'Lead',
+                      overlayFont: 'font-family: SummerHeart; font-size: 60px;',
+                      overlayColor: 'rgba(255, 186, 0, .5)',
+                      overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.'
+                    }]
+                  }, {
+                    width: [12, 7],
+                    height: [200, 300],
+                    innerRows: [{
+                      img: 'https://source.unsplash.com/category/objects/800x400',
+
+                      link: 'http://www.davincicenter.vcu.edu/programs/vcuinnovatellp/',
+                      target: '_blank',
+
+                      overlayText: 'Innovate',
+                      overlayFont: 'font-family: SummerHeart; font-size: 60px;',
+                      overlayColor: 'rgba(221, 72, 161, .5)',
+                      overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                    }]
+                  }
+                ]
+              ]
+            })}}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-help_center">
+        {{help.content()}}
+      </section>
+    </div>
+
+{% endblock %}

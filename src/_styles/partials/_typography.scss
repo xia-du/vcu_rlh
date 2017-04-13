@@ -2,3 +2,24 @@
 .text-display {
   font-family: $font-family-display;
 }
+
+blockquote {
+  p {
+  //   &:before,
+  //   &:after {
+  //     font-family: FontAwesome;
+  //
+  //     position: absolute;
+  //
+  //     color: rgba($gray-light, .5);
+  //   }
+  //   &:before {
+  //     content: '\f10d';
+  //     margin-left: -18px;
+  //   }
+  //   &:after {
+  //     content: '\f10e';
+  //     margin-left: 4px;
+  //   }
+  }
+}

@@ -6,7 +6,7 @@ $font-size-p-md: 12px;
 $icon-size-md: 24px;
 $icon-box-size: 36px;
 
-footer {
+footer#footer {
   font-family: $font-family-heading;
   font-size: $font-size;
 
@@ -131,7 +131,7 @@ footer {
   .hidden-xxs {
     display: block;
   }
-  footer {
+  footer#footer {
     font-size: $font-size-md;
 
     // padding: 50px 0 40px;
@@ -218,7 +218,7 @@ footer {
 }
 
 @media (min-width: $screen-sm) {
-  footer {
+  footer#footer {
     font-size: $font-size-md;
 
     padding: 50px 0 40px;
@@ -254,7 +254,7 @@ footer {
   }
 }
 @media (min-width: $screen-md) {
-  footer {
+  footer#footer {
     padding: 60px 0 40px;
   }
 }

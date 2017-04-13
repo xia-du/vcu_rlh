@@ -279,7 +279,7 @@
                   overlayCaption: true,
                   overlayClass: 'sm-caption',
                   overlayHoverable: true,
-                  overlayText: 'The Honors College    ',
+                  overlayText: 'The Honors College',
                   overlayDescription: 'Description Text could be longer but not too much.'
                 }]
               }]
@@ -288,42 +288,39 @@
       </div>
     </section>
 
-    <section class="section-carousel">
+    <section class="section-carousel section-with-border">
       {{carousel.content({
-        class: 'default with-border',
+        class: 'default',
         imgs: [{
-          src: 'https://unsplash.it/1600/900?image=0',
+          src: 'https://unsplash.it/1600/800?image=0',
           alt: 'mobile slide 1',
-          overlay: {
-            title: 'Example Title',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-            cta: {
-              text: 'Learn More',
-              link: '#'
-            }
-          }
+
+          overlayText: 'Example Title',
+          overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+
+          overlayCta: true,
+          overlayCtaText: 'Learn More',
+          overlayCtaLink: '#'
         }, {
-          src: 'https://unsplash.it/1600/900?image=1',
+          src: 'https://unsplash.it/1600/800?image=1',
           alt: 'mobile slide 2',
-          overlay: {
-            title: 'Example Title',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-            cta: {
-              text: 'Learn More',
-              link: '#'
-            }
-          }
+
+          overlayText: 'Example Title',
+          overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+
+          overlayCta: true,
+          overlayCtaText: 'Learn More',
+          overlayCtaLink: '#'
         }, {
-          src: 'https://unsplash.it/1600/900?image=2',
+          src: 'https://unsplash.it/1600/800?image=2',
           alt:'mobile slide 3',
-          overlay: {
-            title: 'Example Title',
-            body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-            cta: {
-              text: 'Learn More',
-              link: '#'
-            }
-          }
+
+          overlayText: 'Example Title',
+          overlayDescription: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
+
+          overlayCta: true,
+          overlayCtaText: 'Learn More',
+          overlayCtaLink: '#'
         }]
       })}}
     </section>

@@ -1,3 +1,5 @@
+{% import "_modules/image/image.nunjucks" as image %}
+
 {% macro content(spec) %}
 
   {% set spec = spec or {} %}
@@ -16,29 +18,62 @@
       {% for img in _imgs %}
         <div class="slide">
 
-          {# Overlay #}
-          {% if img.overlay %}
-            <div class="overlay">
-              <div class="title">
-                <a href="{{img.overlay.cta.link}}" target="_blank">{{img.overlay.title}}</a>
-              </div>
-              <div class="body hidden-xs">
-                <p>{{img.overlay.body}}</p>
-              </div>
-              <div class="carousel-btn">
-                <a class="btn btn-primary hidden-xs" href="{{img.overlay.cta.link}}">
-                  {{img.overlay.cta.text}}
-                </a>
-              </div>
-            </div>
-          {% endif %}
-
           {# Full height images #}
           {% if _type == 'background' %}
-            <div class="full-height background-slide-img" style="background-image: url({{img.src}})"></div>
+            {{image.content({
+              src: img.src,
+              alt: img.alt,
+              class: 'img-responsive carousel-image-bg',
+              type: 'background',
+              caption: img.caption,
+
+              overlayCta: img.overlayCta,
+              overlayCtaText: img.overlayCtaText,
+              overlayCtaLink: img.overlayCtaLink,
+
+              overlayText: img.overlayText,
+              overlayTextLink: img.overlayTextLink,
+              overlayTextWithTag: img.overlayTextWithTag,
+              overlayCaption: img.overlayCaption,
+              overlayHoverable: img.overlayHoverable,
+              overlayDescription: img.overlayDescription,
+
+              overlayClass: img.overlayClass,
+              overlayFont: img.overlayFont,
+              overlayAlign: img.overlayAlign,
+              overlayColor: img.overlayColor,
+              overlayStyle: img.overlayStyle,
+
+              filter: img.filter
+            })}}
+
           {% else %}
             {# Normal images #}
-            <img src="{{img.src}}" alt="{{img.alt}}" class="img-responsive"/>
+            {{image.content({
+              src: img.src,
+              alt: img.alt,
+              class: 'img-responsive carousel-image',
+              caption: img.caption,
+
+              overlayCta: img.overlayCta,
+              overlayCtaText: img.overlayCtaText,
+              overlayCtaLink: img.overlayCtaLink,
+
+              overlayText: img.overlayText,
+              overlayTextLink: img.overlayTextLink,
+              overlayTextWithTag: img.overlayTextWithTag,
+              overlayCaption: img.overlayCaption,
+              overlayHoverable: img.overlayHoverable,
+              overlayDescription: img.overlayDescription,
+
+              overlayClass: img.overlayClass,
+              overlayFont: img.overlayFont,
+              overlayAlign: img.overlayAlign,
+              overlayColor: img.overlayColor,
+              overlayStyle: img.overlayStyle,
+
+              filter: img.filter
+            })}}
           {% endif %}
         </div>
       {% endfor %}
@@ -46,24 +81,72 @@
 
     {# Tablet & Desktop #}
     {% if _mdImgs.length %}
-      <div class="carousel {{_class}}
+      <div class="carousel carousel-md {{_class}}
         {% if _lgImgs.length %}
           visible-sm-block visible-md-block
         {% endif %}" id="{{_id}}">
         {% for img in _mdImgs %}
           <div>
-            <img src="{{img.src}}" alt="{{img.alt}}" class="img-responsive"/>
+            {{image.content({
+              src: img.src,
+              alt: img.alt,
+              class: 'img-responsive carousel-md-image',
+              caption: innerRow.caption,
+
+              overlayCta: innerRow.overlayCta,
+              overlayCtaText: innerRow.overlayCtaText,
+              overlayCtaLink: innerRow.overlayCtaLink,
+
+              overlayText: innerRow.overlayText,
+              overlayTextLink: img.overlayTextLink,
+              overlayTextWithTag: innerRow.overlayTextWithTag,
+              overlayCaption: innerRow.overlayCaption,
+              overlayHoverable: innerRow.overlayHoverable,
+              overlayDescription: innerRow.overlayDescription,
+
+              overlayClass: innerRow.overlayClass,
+              overlayFont: innerRow.overlayFont,
+              overlayAlign: innerRow.overlayAlign,
+              overlayColor: innerRow.overlayColor,
+              overlayStyle: innerRow.overlayStyle,
+
+              filter: innerRow.filter
+            })}}
           </div>
         {% endfor %}
       </div>
     {% endif %}
 
     {# Large Desktop #}
-    {% if _mdImgs.length %}
-      <div class="carousel {{_class}} visible-lg-block" id="{{_id}}">
+    {% if _lgImgs.length %}
+      <div class="carousel  carousel-lg {{_class}} visible-lg-block" id="{{_id}}">
         {% for img in _lgImgs %}
           <div>
-            <img src="{{img.src}}" alt="{{img.alt}}" class="img-responsive"/>
+            {{image.content({
+              src: img.src,
+              alt: img.alt,
+              class: 'img-responsive carousel-lg-image',
+              caption: innerRow.caption,
+
+              overlayCta: innerRow.overlayCta,
+              overlayCtaText: innerRow.overlayCtaText,
+              overlayCtaLink: innerRow.overlayCtaLink,
+
+              overlayText: innerRow.overlayText,
+              overlayTextLink: img.overlayTextLink,
+              overlayTextWithTag: innerRow.overlayTextWithTag,
+              overlayCaption: innerRow.overlayCaption,
+              overlayHoverable: innerRow.overlayHoverable,
+              overlayDescription: innerRow.overlayDescription,
+
+              overlayClass: innerRow.overlayClass,
+              overlayFont: innerRow.overlayFont,
+              overlayAlign: innerRow.overlayAlign,
+              overlayColor: innerRow.overlayColor,
+              overlayStyle: innerRow.overlayStyle,
+
+              filter: innerRow.filter
+            })}}
           </div>
         {% endfor %}
       </div>
@@ -74,7 +157,6 @@
       <div class="thumbnails-wrap" id="{{_id + '-nav'}}">
         {% for img in _imgs %}
           <div class="slider-thumbnail" style="background-image: url({{img.src}})">
-            {# <img src="{{img.src}}" alt="{{img.alt}}"/> #}
           </div>
         {% endfor %}
       </div>

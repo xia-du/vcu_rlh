@@ -21,18 +21,11 @@ export default class Masonry {
     }
 
     function setHeight() {
+
       var screenSize = getWindowSize();
 
       function setHeightForEachItem(row, innerRows, innerRowsNum, height) {
-
         $(row).css('height', height);
-
-        // innerRows.each(function(index, innerRow) {
-        //   $(innerRow).css('height', height / innerRowsNum);
-        //   console.log($(innerRow).height());
-        //   gridHeight += $(row).height();
-        // });
-
       }
 
       gridItems
@@ -70,7 +63,7 @@ export default class Masonry {
       layoutMode: 'fitRows'
     });
 
-    window.onresize = setHeight;
+    $(window).resize(setHeight);
 
   }
 }

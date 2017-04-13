@@ -264,6 +264,7 @@ nav {
         font-family: $font-family-heading;
         font-size: 30px;
 
+        cursor: pointer;
         text-decoration: none;
 
         color: $white;
@@ -425,8 +426,8 @@ nav {
       }
 
       .dropdown {
+        cursor: pointer;
         .dropdown-menu {
-          // min-width: auto;
           li {
             width: 100%;
             padding: 0;

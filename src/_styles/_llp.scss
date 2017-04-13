@@ -1,11 +1,51 @@
-// Life on Campus page styles
+// LLP page styles
 $padding-base: 15px;
 $margin-base: 30px;
 $margin-sm: 30px;
 $margin-md: 60px;
 
-.life-on-campus {
+.llp {
+  #what-is-llp {
+    .llp-logo {
+      padding-bottom: 30px;
+
+      text-align: center;
+      figure {
+        .img-wrap {
+          img {
+            max-width: 160px ;
+          }
+        }
+      }
+    }
+  }
+
+  #testimonials {
+    @include xlgCap();
+      .row {
+        &.no-gutter > [class*='col-'] {
+          padding-right:0;
+          padding-left:0;
+        }
+
+        .testimonial-img-wrap {
+          height: 200px;
+        }
+
+        .testimonial-body {
+          padding-right: 0;
+          padding-left: 0;
+          blockquote {
+            margin-bottom: 0;
+            margin-left: 30px;
+          }
+        }
+      }
+  }
+
   #events {
+    padding-bottom: 0;
+
     text-align: center;
 
     .slick-arrow {
@@ -38,10 +78,10 @@ $margin-md: 60px;
 
     .events-slide {
       width: 46vw;
-      padding: $padding-base*2 0 $padding-base;
+      padding: $padding-base 0;
 
       cursor: pointer;
-      transition: all $speed-default ease-in-out;
+      transition: all $speed-faster ease-in-out;
 
       outline: none;
 
@@ -77,6 +117,7 @@ $margin-md: 60px;
 
         align-items: center;
         justify-content: center;
+
         h4 {
           text-transform: uppercase;
         }
@@ -96,48 +137,10 @@ $margin-md: 60px;
       margin-bottom: $margin-base;
     }
   }
-
-  #blog {
-    .featured-posts {
-      margin-top: $margin-base;
-
-      figure {
-        img {
-          margin-top: $margin-base;
-
-          &.no-margin-top {
-            margin-top: 0;
-          }
-        }
-
-        figcaption {
-          padding-right: 0;
-          padding-left: 0;
-
-          text-align: left;
-
-          color: $gray-dark;
-
-          i {
-            font-family: $font-family-sans-serif;
-            font-style: normal;
-          }
-        }
-      }
-    }
-    .blog-cta {
-      margin-top: $margin-base;
-
-      text-align: center;
-    }
-  }
-}
-
-@media (min-width: $screen-xs) {
 }
 
 @media (max-width: $screen-xs) {
-  .life-on-campus {
+  .llp {
     #events {
       .events-slide {
         transform: scale(.8);
@@ -151,11 +154,20 @@ $margin-md: 60px;
         }
       }
     }
+
+    #programs {
+      figure .img-wrap .img-overlay .overlay-text p {
+        font-size: 12vw !important;
+      }
+    }
   }
 }
 
+@media (min-width: $screen-xs) {
+}
+
 @media (min-width: 480px) {
-  .life-on-campus {
+  .llp {
     #events {
       padding-right: $padding-base;
       padding-left: $padding-base;
@@ -164,7 +176,30 @@ $margin-md: 60px;
 }
 
 @media (min-width: $screen-sm) {
-  .life-on-campus {
+  .llp {
+    #what-is-llp {
+      .llp-logo {
+        padding-bottom: 0;
+
+        text-align: center;
+        figure {
+          .img-wrap {
+            img {
+              max-width: 160px ;
+            }
+          }
+        }
+      }
+    }
+    #testimonials {
+      .testimonial-img-wrap {
+        height: 100%;
+      }
+      .testimonial-body {
+        padding-right: 30px;
+        padding-left: 30px;
+      }
+    }
     #events {
       @include xlgCap();
     }
@@ -174,36 +209,11 @@ $margin-md: 60px;
         margin-bottom: 0;
       }
     }
-    #blog {
-      .featured-posts {
-        margin-top: $margin-sm;
-        figure {
-          img {
-            margin-top: 0;
-          }
-        }
-      }
-      .blog-cta {
-        margin-top: $margin-sm;
-
-        text-align: center;
-      }
-    }
   }
 }
 
 @media (min-width: $screen-md) {
-  .life-on-campus {
-    #blog {
-      .featured-posts {
-        margin-top: $margin-md;
-      }
-      .blog-cta {
-        margin-top: $margin-md;
-
-        text-align: center;
-      }
-    }
+  .llp {
   }
 }
 @media (min-width: $screen-lg) {

@@ -29,6 +29,8 @@
   {% set _overlayDescription = spec.overlayDescription or '' %}
 
   {% set _overlayText = spec.overlayText or '' %}
+  {% set _overlayTextLink = spec.overlayTextLink or '' %}
+  {% set _overlayTextWithTag = spec.overlayTextWithTag or false %}
   {% set _overlayClass = spec.overlayClass or '' %}
   {% set _overlayFont = spec.overlayFont or '' %}
   {% set _overlayColor = spec.overlayColor or '' %}
@@ -54,16 +56,36 @@
 
   {% set _type = spec.type or 'default' %}
 
+  {% if _overlayAlignStyle or _overlayFont %}
+    {% set _overlayTextInlineStyle = 'style="' + _overlayAlignStyle + '; ' + _overlayFont + '"' %}
+  {% endif %}
+
+  {% if _overlayColorStyle or _overlayStyle %}
+    {% set _overlayInlineStyle = 'style="' + _overlayColorStyle + ' ' +  _overlayStyle + ';"' %}
+  {% endif %}
+
   <figure class="{{_type}}-type-img">
 
     <div class="img-wrap">
 
       {% if _overlayText %}
-        <div class="img-overlay {{_overlayClass}} {{_overlayCaptionClass}} {{_overlayHoverableClass}}" style="{{_overlayColorStyle}} {{_overlayStyle}};">
+        <div class="img-overlay {{_overlayClass}} {{_overlayCaptionClass}} {{_overlayHoverableClass}}" {{_overlayInlineStyle}}>
           <div class="overlay-text">
-            <p style="{{_overlayAlignStyle}}; {{_overlayFont}}">{{_overlayText}}</p>
+            {% if _overlayTextLink %}
+              <a href="{{_overlayTextLink}}">
+            {% endif %}
+
+            {% if _overlayTextWithTag %}
+            <div {{_overlayTextInlineStyle}}>{{_overlayText}}</div>
+            {% else %}
+            <p {{_overlayTextInlineStyle}}>{{_overlayText}}</p>
+            {% endif %}
+
+            {% if _overlayTextLink %}
+            </a>
+            {% endif %}
           </div>
-          {% if _overlayCaption %}
+          {% if _overlayDescription %}
             <div class="overlay-description hidden-xs">
               <p>{{_overlayDescription}}</p>
             </div>

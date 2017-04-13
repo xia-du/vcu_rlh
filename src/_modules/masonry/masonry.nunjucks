@@ -65,15 +65,25 @@
                           <a href="{{_link}}" target="{{_target}}">
                           {% endif %}
 
-                          {{image.content({ src: innerRow.img,
+                          {{image.content({
+                            src: innerRow.img,
+                            id: innerRow.id,
                             class: 'masonry-img',
                             type: 'background',
+                            caption: innerRow.caption,
 
+                            overlayCta: innerRow.overlayCta,
+                            overlayCtaText: innerRow.overlayCtaText,
+                            overlayCtaLink: innerRow.overlayCtaLink,
+
+                            overlayText: innerRow.overlayText,
+                            overlayTextLink: innerRow.overlayTextLink,
+                            overlayTextWithTag: innerRow.overlayTextWithTag,
                             overlayCaption: innerRow.overlayCaption,
                             overlayHoverable: innerRow.overlayHoverable,
-                            overlayText: innerRow.overlayText,
                             overlayDescription: innerRow.overlayDescription,
 
+                            overlayClass: innerRow.overlayClass,
                             overlayFont: innerRow.overlayFont,
                             overlayAlign: innerRow.overlayAlign,
                             overlayColor: innerRow.overlayColor,
@@ -116,10 +126,17 @@
                           src: innerRow.img,
                           class: 'masonry-img',
                           type: 'background',
+                          caption: innerRow.caption,
 
+                          overlayCta: innerRow.overlayCta,
+                          overlayCtaText: innerRow.overlayCtaText,
+                          overlayCtaLink: innerRow.overlayCtaLink,
+
+                          overlayText: innerRow.overlayText,
+                          overlayTextLink: innerRow.overlayTextLink,
+                          overlayTextWithTag: innerRow.overlayTextWithTag,
                           overlayCaption: innerRow.overlayCaption,
                           overlayHoverable: innerRow.overlayHoverable,
-                          overlayText: innerRow.overlayText,
                           overlayDescription: innerRow.overlayDescription,
 
                           overlayClass: innerRow.overlayClass,

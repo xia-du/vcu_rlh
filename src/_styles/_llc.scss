@@ -1,0 +1,170 @@
+// LLC page styles
+$padding-base: 15px;
+
+.llc {
+  #programs-in-residence,
+  #theme-communities {
+    padding-bottom: 0;
+
+    text-align: center;
+
+    .slick-arrow {
+      z-index: 10;
+      top: 40%;
+
+      &.slick-prev {
+        left: 10px;
+        &:before {
+          font-family: FontAwesome;
+          font-size: 36px;
+
+          content: '\f104';
+
+          color: $gray-light;
+        }
+      }
+      &.slick-next {
+        right: 10px;
+        &:before {
+          font-family: FontAwesome;
+          font-size: 36px;
+
+          content: '\f105';
+
+          color: $gray-light;
+        }
+      }
+    }
+
+    .pir-slide {
+      width: 46vw;
+      padding: $padding-base;
+
+      cursor: pointer;
+      transition: all $speed-faster ease-in-out;
+
+      outline: none;
+
+      .pir-logo {
+        transition: filter $speed-faster ease-in-out;
+
+        filter: saturate(0);
+
+        .img-wrap {
+          img {
+            height: 128px;
+          }
+        }
+      }
+
+      &.slick-current {
+        &:before {
+          position: absolute;
+          top: 90%;
+
+          width: 0;
+          height: 0;
+
+          content: '';
+          transform: translateX(-50%);
+
+          border-right: 80px solid transparent;
+          border-bottom: 40px solid $gray-lighter;
+          border-left: 80px solid transparent;
+        }
+
+        .pir-logo {
+          filter: saturate(1);
+        }
+      }
+    }
+  }
+
+  #programs-in-residence-info,
+  #theme-communities-info {
+    .pir-image {
+      margin-bottom: $margin-base;
+    }
+    .pir-description {
+      > h3 {
+        margin-top: 0;
+
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@media (max-width: $screen-xs) {
+  .llc {
+    #programs-in-residence,
+    #theme-communities {
+      .pir-slide {
+        transform: scale(.8);
+
+        opacity: .5;
+
+        &.slick-center {
+          transform: scale(1);
+
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .llc {
+    #programs-in-residence,
+    #theme-communities {
+    }
+  }
+}
+
+@media (min-width: 480px) {
+  .llc {
+    #programs-in-residence,
+    #theme-communities {
+      padding-right: $padding-base;
+      padding-left: $padding-base;
+      .pir-slide {
+        padding: $padding-base*1.5 $padding-base*1.5;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .llc {
+    #programs-in-residence,
+    #theme-communities {
+      @include lgCap();
+    }
+    #programs-in-residence-info,
+    #theme-communities-info {
+      @include xlgCap();
+      .pir-image {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-sm) and (max-width: 840px) {
+  .llc {
+    #programs-in-residence,
+    #theme-communities {
+      .pir-slide {
+        padding: $padding-base*1.5 $padding-base*3;
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+  .llc {
+  }
+}
+@media (min-width: $screen-lg) {
+}

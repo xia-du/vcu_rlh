@@ -29,9 +29,6 @@
     name: 'Blog',
     link: '#blog'
   }, {
-    name: 'Education Center',
-    link: '#education_center'
-  }, {
     name: 'Help Center',
     link: '#help_center'
 }] %}
@@ -65,26 +62,166 @@
       <section class="section-hero">
         <div class="hero">
           {{carousel.content({
-            id: 'home-carousel',
+            id: 'life-on-campus-carousel',
             type: 'background',
             imgs: [{
               src: 'https://unsplash.it/1600/900?image=0',
-              alt: 'slide 1'
+              alt: 'life on campus carousel slide',
+
+              overlayCaption: true,
+              overlayText: 'Welcome Week',
+              overlayDescription: 'commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientcommodo ligula eget dolor.'
             }, {
               src: 'https://unsplash.it/1600/900?image=10',
-              alt: 'slide 1'
+              alt: 'life on campus carousel slide',
+
+              overlayCaption: true,
+              overlayText: 'Example Title',
+              overlayDescription: 'commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientcommodo ligula eget dolor.'
             }, {
               src: 'https://unsplash.it/1600/900?image=20',
-              alt: 'slide 1'
+              alt: 'life on campus carousel slide'
             }, {
               src: 'https://unsplash.it/1600/900?image=60',
-              alt: 'slide 1' }]
-            })}}
+              alt: 'life on campus carousel slide',
+
+              overlayCta: true,
+              overlayCtaText: 'Learn More',
+
+              overlayText: 'Example Title',
+              overlayDescription: 'commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientcommodo ligula eget dolor.'
+            }
+          ]
+        })}}
         </div>
       </section>
 
       <section class="no-padding" id="events">
-        Events section
+        {% set events = [
+          {
+            month: 'MAY',
+            day: '9',
+            name: 'Ram night madness',
+            id: 'event-ram_night_madness',
+            time: '7 PM to 10 PM',
+            location: 'Cary Street Gym',
+            imageLink: 'https://unsplash.it/800/600?image=0',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          }, {
+            month: 'JUN',
+            day: '10',
+            name: 'GEO Affair',
+            id: 'event-geo_affair',
+            time: '9 AM to 12 PM',
+            location: '912 W. Grace St.',
+            imageLink: 'https://unsplash.it/800/600?image=10',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          }, {
+            month: 'AUG',
+            day: '18',
+            name: 'RAM CAMP',
+            id: 'event-ram_capm',
+            time: '4 PM to 8 PM',
+            location: 'Student Commons',
+            imageLink: 'https://unsplash.it/800/600?image=20',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          }, {
+            month: 'SEPT',
+            day: '16',
+            name: 'Event Name 4',
+            id: 'event-event_name_4',
+            time: '9 AM to 12 PM',
+            location: '912 W. Grace St.',
+            imageLink: 'https://unsplash.it/800/600?image=30',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          }, {
+            month: 'NOV',
+            day: '22',
+            name: 'Event Name 5',
+            id: 'event-event_name_5',
+            time: '4 PM to 8 PM',
+            location: 'Student Commons',
+            imageLink: 'https://unsplash.it/800/600?image=40',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          }, {
+            month: 'DEC',
+            day: '1',
+            name: 'Event Name 6',
+            id: 'event-event_name_6',
+            time: '4 PM to 8 PM',
+            location: 'Student Commons',
+            imageLink: 'https://unsplash.it/800/600?image=50',
+            description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+          }
+        ] %}
+
+        <div class="row">
+          <div class="events-slider" id="events-slider">
+
+            {% for event in events %}
+            <div class="events-slide" data-target="#event-{{loop.index}}" id="{{event.id}}">
+
+              <div class="date">
+                <div class="month">
+                  <span>
+                    {{event.month}}
+                  </span>
+                </div>
+
+                <div class="day">
+                  <span>
+                    {{event.day}}
+                  </span>
+                </div>
+              </div>
+
+              <div class="name">
+                <h4>
+                  {{event.name}}
+                </h4>
+              </div>
+
+              <div class="detail">
+                <div class="time">
+                  <p>
+                    {{event.time}}
+                  </p>
+                </div>
+                <div class="location">
+                  <p>
+                    {{event.location}}
+                  </p>
+                </div>
+              </div>
+
+            </div>
+            {% endfor %}
+
+          </div>
+        </div>
+      </section>
+
+      <section class="section-gray-lighter" id="events-info">
+        <div class="container">
+          <div id="events-info-slider">
+            {% for event in events %}
+              <div class="row events-info" id="event-{{loop.index}}">
+                <div class="col-xs-12 col-sm-4 events-image">
+                  {{image.content({
+                    src: event.imageLink,
+                    alt: 'event image'
+                  })}}
+                </div>
+                <div class="col-xs-12 col-sm-8 events-description">
+                  <p>
+                    {{event.description}}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+      </div>
+
       </section>
 
       <section class="section-masonry" id="get_involved">
@@ -131,20 +268,20 @@
                     innerRows: [{
                       img: 'https://source.unsplash.com/category/objects/800x400',
 
-                      link: 'https://vcu.edu',
+                      link: '/llc',
                       target: '_self',
 
                       overlayText: 'Freshmen Living Learning Communities',
-                      overlayFont: 'font-family: SummerHeart; font-size: 24px;',
+                      overlayFont: 'font-family: SummerHeart; font-size: 28px;',
                       overlayColor: 'rgba(221, 72, 161, .5)'
                     }, {
                       img: 'https://source.unsplash.com/category/technology/800x400',
 
-                      link: 'https://vcu.edu',
+                      link: '/llp',
                       target: '_self',
 
-                      overlayText: 'Upperclassmen Living Learning Communities',
-                      overlayFont: 'font-family: SummerHeart; font-size: 24px;',
+                      overlayText: 'Upperclassmen Living Learning Programs',
+                      overlayFont: 'font-family: SummerHeart; font-size: 28px;',
                       overlayColor: 'rgba(91, 193, 157, .5)'
                     }]
                   }

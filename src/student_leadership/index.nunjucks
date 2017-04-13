@@ -5,6 +5,205 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
 {% block content %}
-<p>student_leadership page</p>
+  <div class="student-leadership">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{image.content({
+          src: '/images/application_hero.jpg',
+          alt: 'Student Leadershi page hero-image',
+          type: 'background',
+          overlayText: '<h1>Student Leadership</h1>',
+          overlayTextWithTag: true,
+          overlayFont: 'font-family: SummerHeart; font-size: 120px;',
+          overlayColor: 'rgba(204, 120, 81, .5)'
+        })}}
+      </div>
+    </section>
+
+    <section class="">
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="lead">
+                  Living-Learning Communities are designed to integrate unique on-campus living with a focused academic experience. The mix of curricular and co-curricular activities enables students to apply classroom learning in real-world experiences.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator">
+      <hr class="hr-primary right">
+    </section>
+
+    <section class="section-blockquote">
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <blockquote class="blockquote-reverse">
+                  <p>
+                    In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam. Integer et elit eget elit facilisis tristique. Nam vel iaculis mauris. Sed ullamcorper tellus erat, non ultrices sem tincidunt euism.
+                  </p>
+                  <footer>Someone in
+                    <cite title="Source Title">Source Title</cite>
+                  </footer>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator">
+      <hr class="hr-primary left">
+    </section>
+    <section class="section-masonry" id="leadership_opportunities">
+      <div class="container">
+        <div class="title">
+          <h2>
+            Leadership Opportunities
+          </h2>
+        </div>
+        <div class="row">
+          {{masonry.content({
+            id: 'get-involved-masonry',
+            rows: [
+              [
+                {
+                  width: [12, 7],
+                  height: [200, 260, 300],
+                  innerRows: [{
+                    img: 'https://source.unsplash.com/category/nature/800x400',
+
+                    link: '/student_jobs',
+                    target: '_self',
+
+                    overlayText: 'Hall and Community Councils',
+                    overlayFont: 'font-family: SummerHeart; font-size: 36px;',
+                    overlayColor: 'rgba(0, 168, 207, .5)'
+                  }]
+                }, {
+                  width: [12, 5],
+                  height: [200, 260, 300],
+                  innerRows: [{
+                    img: 'https://source.unsplash.com/category/buildings/800x400',
+
+                    link: '/student_leadership',
+                    target: '_self',
+
+                    overlayText: 'National Residence Hall Honorary',
+                    overlayFont: 'font-family: SummerHeart; font-size: 36px;',
+                    overlayColor: 'rgba(204, 120, 81, .5)'
+                  }]
+                }
+              ], [
+                {
+                  width: [12, 5],
+                  height: [200, 260, 300],
+                  innerRows: [{
+                    img: 'https://source.unsplash.com/category/technology/800x400',
+
+                    link: '/student_jobs',
+                    target: '_self',
+
+                    overlayText: 'Support RHA',
+                    overlayFont: 'font-family: SummerHeart; font-size: 36px;',
+                    overlayColor: 'rgba(221, 72, 161, .5)'
+                  }]
+                }, {
+                  width: [12, 7],
+                  height: [200, 260, 300],
+                  innerRows: [{
+                    img: 'https://source.unsplash.com/category/food/800x400',
+
+                    link: '/student_leadership',
+                    target: '_self',
+
+                    overlayText: 'Ram Camp',
+                    overlayFont: 'font-family: SummerHeart; font-size: 36px;',
+                    overlayColor: 'rgba(97, 147, 63, .5)'
+                  }]
+                }, {
+                  width: [12],
+                  height: [200, 260, 300],
+                  innerRows: [{
+                    img: 'https://source.unsplash.com/category/people/800x400',
+
+                    link: 'https://vcu.edu',
+                    target: '_self',
+
+                    overlayText: 'MAPSA',
+                    overlayFont: 'font-family: SummerHeart; font-size: 36px;',
+                    overlayColor: 'rgba(255, 207, 77, .5)'
+                  }]
+                }
+              ]
+            ]
+          })}}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
 {% endblock %}

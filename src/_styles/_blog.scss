@@ -1,0 +1,141 @@
+// Blog page styles
+$padding-base: 15px;
+$margin-base: 30px;
+$margin-sm: 30px;
+$margin-md: 60px;
+
+.blog {
+  .blog-main-content {
+    .post {
+      margin-bottom: $margin-base*2;
+      .post-title {
+        a {
+          color: $gray-dark;
+          &:hover {
+            color: $brand-secondary;
+            text-decoration: none;
+          }
+        }
+      }
+      .post-meta {
+        ul {
+          font-weight: 500;
+
+          padding-left: 0;
+
+          color: $gray-light;
+          li {
+            display: inline-block;
+            &:first-child {
+              padding-right: 15px;
+            }
+          }
+        }
+      }
+
+      .post-cover {
+        margin-bottom: $margin-base;
+      }
+    }
+  }
+
+  .blog-sidebar {
+    padding: $padding-base 0;
+    ul {
+      padding-left: 0;
+
+      list-style: none;
+      li {
+        a {
+          color: $gray-darker;
+        }
+      }
+    }
+    .blog-categories {
+      margin-bottom: $margin-base;
+      ul {
+        li {
+          padding: $padding-base/2 $padding-base;
+          padding-left: 0;
+          a {
+            color: $brand-secondary;
+            font-size: 16px;
+          }
+        }
+      }
+    }
+    .blog-tags {
+      margin-bottom: $margin-base;
+      ul {
+        li {
+          display: inline-block;
+          margin-bottom: 8px;
+          margin-right: 4px;
+          padding: 4px 10px;
+          border-radius: 4px;
+          background-color: $brand-primary;
+          a {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+
+  #featured-posts-section {
+    .featured-posts {
+      margin-top: $margin-base;
+
+      figure {
+        // margin-bottom: $margin-base;
+
+        img {
+          margin-top: $margin-base;
+
+          &.no-margin-top {
+            margin-top: 0;
+          }
+        }
+
+        figcaption {
+          padding-right: 0;
+          padding-left: 0;
+
+          text-align: left;
+
+          color: $gray-dark;
+
+          i {
+            font-family: $font-family-sans-serif;
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xs) {
+  .blog {
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .blog {
+    #featured-posts-section {
+      .featured-posts {
+        margin-top: $margin-sm;
+        figure {
+          img {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+}
+@media (min-width: $screen-lg) {
+}

@@ -5,6 +5,121 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
 {% block content %}
-<p>student_jobs page</p>
+  <div class="student-jobs">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{image.content({
+          src: '/images/application_hero.jpg',
+          alt: 'Application page hero-image',
+          id: 'home-carousel',
+          type: 'background',
+          overlayText: '<h1>Student Jobs</h1>',
+          overlayTextWithTag: true,
+          overlayFont: 'font-family: SummerHeart; font-size: 120px;',
+          overlayColor: 'rgba(0, 168, 207, .5)'
+        })}}
+      </div>
+    </section>
+
+    <section class="" id="join-us">
+      <div class="container">
+
+        <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div>
+
+        <div class="row positions-row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="lead">
+                  Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at.
+                </p>
+                <p>
+                  Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam. In imperdiet eros id lacus vestibulum vestibulum. Suspendisse fermentum sem sagittis ante venenatis egestas quis vel justo. Maecenas semper
+                  suscipit nunc, sed aliquam sapien convallis eu. Nulla ut turpis in diam dapibus consequat.Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorpe.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator">
+      <hr class="hr-primary left">
+    </section>
+
+    <section class="" id="positions">
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Positions
+          </h2>
+        </div> #}
+
+        {% import "student_jobs/partials/ra.njk" as raBody %}
+
+        <div class="row positions-row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                {# <h3>Incoming Students</h3> #}
+                {# <hr class="hr-primary"> #}
+                {{accordion.content({ id: 'positions-accordion', items: [{ state: '', heading: 'Resident Assistant', body: raBody.content() }, { heading: 'Graduate Assistant', body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>' }, { heading: 'Hourly Developer', body: '<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>' }] })}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
 {% endblock %}

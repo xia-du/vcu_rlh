@@ -1,0 +1,49 @@
+{% import "_modules/image/image.nunjucks" as image %}
+
+{% macro content() %}
+<div class="ra-content">
+  <p>
+    {{image.content({
+      src: '/images/student_jobs/ra.jpg'
+    })}}
+  </p>
+
+  <p>
+    Residential Life and Housing will be accepting applications for a limited number of anticipated openings for the position of Resident Assistant during the academic school year of 2016-2017. If you are interested in joining our team, please plan to attend one of the following information sessions:
+  </p>
+  <p>
+    <ul>
+      <li>
+        <strong>Wednesday, November 16, 7:00pm in the Ackell Community Room</strong>
+      </li>
+      <li>
+        <strong>Tuesday, November 29, 9:00am in the Broad & Belvidere Community Room</strong>
+      </li>
+      <li>
+        <strong>Thursday, December 1, 8:00pm in the Cabaniss Community Room</strong>
+      </li>
+      <li>
+        <strong>Monday, December 5, 7:00pm in West Grace North, Room 1030J</strong>
+      </li>
+      <li>
+        <strong>Friday, December 9, 1:30pm in West Grace South, Room 1004A</strong>
+      </li>
+    </ul>
+  </p>
+  <p>
+    The online application will be available beginning Monday, November 14, 2016 and will close on <strong class="text-info">Thursday, January 19, 2017 at 11:59pm</strong>. It is REQUIRED that you attend one of the information sessions listed above in order to apply. A link to the application can be found here once the application opens on November 14, 2016. To apply, visit <a href="//vcu.erezlife.com" target="_blank">vcu.erezlife.com</a>.
+  </p>
+  <p>
+    All submitted applications will be reviewed and selected candidates will receive an invitation to interview with us the weekend of January 27, 2017 – January 29, 2017. Offers will be made the week of February 13, 2017.
+  </p>
+  <p>
+    Please note that this announcement and application process is not for the Spring 2017 semester. This is only for those individuals interested in our anticipated vacancies for the 2017-2018 academic year.
+  </p>
+  <p>
+    If you have any questions, please feel free to email <a href="mailto:BeAnRA@vcu.edu">BeAnRA@vcu.edu</a>.
+  </p>
+</div>
+<div class="ra-cta">
+  <a href="#" class="btn btn-info">Why Become an RA?</a>
+</div>
+{% endmacro %}

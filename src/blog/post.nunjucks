@@ -1,0 +1,206 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+  <div class="post-page">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{image.content({
+          src: '/images/application_hero.jpg',
+          alt: 'Blog post page hero-image',
+          type: 'background'
+        })}}
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-12">
+
+                <div class="title">
+
+                  <div class="meta">
+                    <ul>
+                      <li>Rose Simmons</li>
+                      <li>May 13, 2016</li>
+                    </ul>
+                  </div>
+
+                  <h1 class="text-uppercase">
+                    Everything you need to know about move-in
+                  </h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator hidden-xs">
+      <hr class="hr-primary left">
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <p class="lead">
+                      Curabitur lobortis id lorem id bibendum. Ut id consectetur magna. Quisque volutpat augue enim, pulvinar lobortis nibh lacinia at. Vestibulum nec erat ut mi sollicitudin porttitor id sit amet risus. Nam tempus vel odio vitae aliquam.
+                    </p>
+                    <p>
+                      {{image.content({
+
+                      })}}
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <p>
+                      <blockquote class="blockquote blockquote-gold">
+                        <p class="lead">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc. Phasellus ligula
+                          ipsum, volutpat eget semper.
+                        </p>
+                      </blockquote>
+                    </p>
+                  </div>
+                  <div class="col-sm-6">
+                    <p>
+                      Cras quis nulla commodo, aliquam lectus sed, blandit augue. Cras ullamcorper bibendum bibendum. Duis tincidunt urna non pretium porta. Nam condimentum vitae ligula vel ornare. Phasellus at semper turpis. Nunc eu tellus tortor. Etiam at condimentum
+                      nisl, vitae sagittis orci. Donec id dignissim nunc. Donec elit ante, eleifend a dolor et, venenatis facilisis dolor. In feugiat orci odio, sed lacinia sem elementum quis. Aliquam consectetur, eros et vulputate euismod, nunc leo tempor lacus, ac
+                      rhoncus neque eros nec lacus. Cras lobortis molestie faucibus.In hac habitasse platea dictumst. Vivamus adipiscing fermentum quam volutpat aliquam..
+                    </p>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <p>Mauris non tempor quam, et lacinia sapien. Mauris accumsan eros eget libero posuere vulputate. Etiam elit elit, elementum sed varius at, adipiscing vitae est. Sed nec felis pellentesque, lacinia dui sed, ultricies sapien. Pellentesque orci lectus,
+                      consectetur vel posuere posuere, rutrum eu ipsum. Aliquam eget odio sed ligula iaculis consequat at eget orci. Mauris molestie sit amet metus mattis varius. Donec sit amet ligula eget nisi sodales egestas.</p>
+
+                    <p>
+                      {{image.content({
+
+                      })}}
+                    </p>
+
+                    <h3>Heading</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut pretium pretium tempor. Ut eget imperdiet neque. In volutpat ante semper diam molestie, et aliquam erat laoreet. Sed sit amet arcu aliquet, molestie justo at, auctor nunc. Phasellus
+                      ligula ipsum, volutpat eget semper id, viverra eget nibh. Suspendisse luctus mattis cursus. Nam consectetur ante at nisl hendrerit gravida. Donec vehicula rhoncus mattis. Mauris dignissim semper mattis. Fusce porttitor a mi at suscipit. Praesent
+                      facilisis dolor sapien, vel sodales augue mollis ut. Mauris venenatis magna eu tortor posu.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gray-lighter" id="related-posts-section">
+      <div class="container">
+        <div class="title">
+          <h2>
+            Related Posts
+          </h2>
+        </div>
+
+        <div class="row related-posts">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12">
+                <div class="row">
+
+                  <div class="col-xs-12 col-sm-4">
+                    {{image.content({ src: 'https://source.unsplash.com/category/people/400x300', alt: 'blog image', class: 'no-margin-top', overlayClass: 'sm-caption', overlayCaption: true, overlayText: 'Sustainability' })}}
+                  </div>
+
+                  <div class="col-xs-12 col-sm-4">
+                    {{image.content({ src: 'https://source.unsplash.com/category/technology/400x300', alt: 'blog image', overlayClass: 'sm-caption', overlayCaption: true, overlayText: 'Social' })}}
+                  </div>
+
+                  <div class="col-xs-12 col-sm-4">
+                    {{image.content({ src: 'https://source.unsplash.com/category/objects/400x300', alt: 'blog image', overlayClass: 'sm-caption', overlayCaption: true, overlayText: 'Academic' })}}
+                  </div>
+
+                </div>
+
+                <div class="row related-posts">
+
+                  <div class="col-xs-12 col-sm-4">
+                    {{image.content({ src: 'https://source.unsplash.com/category/people/400x300', alt: 'blog image', class: 'no-margin-top', overlayClass: 'sm-caption', overlayCaption: true, overlayText: 'Sustainability' })}}
+                  </div>
+
+                  <div class="col-xs-12 col-sm-4">
+                    {{image.content({ src: 'https://source.unsplash.com/category/technology/400x300', alt: 'blog image', overlayClass: 'sm-caption', overlayCaption: true, overlayText: 'Social' })}}
+                  </div>
+
+                  <div class="col-xs-12 col-sm-4">
+                    {{image.content({ src: 'https://source.unsplash.com/category/objects/400x300', alt: 'blog image', overlayClass: 'sm-caption', overlayCaption: true, overlayText: 'Academic' })}}
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
+{% endblock %}

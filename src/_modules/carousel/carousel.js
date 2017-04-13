@@ -1,13 +1,56 @@
 'use strict';
 
+import Services from '../../_scripts/_services.js';
+
 export default class Carousel {
   constructor() {
     this.name = 'carousel';
 
+    var services = new Services();
+
+    // Events
+    // Hide dots for slides with overlayed captions
+    function hideDotsForCaption(slick, index, hide) {
+      var el = slick.$slides[index];
+      var hasOverlayCaption = $(el)
+        .find('.overlay-caption')
+        .length;
+
+      var $dots = slick.$dots;
+      var $nextArrow = slick.$nextArrow;
+      var $prevArrow = slick.$prevArrow;
+
+      if (hasOverlayCaption) {
+        if (hide || hide === true) {
+          $dots.hide();
+        } else {
+          $dots.fadeOut('fast');
+        }
+        if ($(window).width() < 768 - services.getScrollBarWidth()) {
+          $nextArrow.fadeIn('fast');
+          $prevArrow.fadeIn('fast');
+        }
+      } else {
+        $dots.fadeIn('fast');
+        if ($(window).width() < 768 - services.getScrollBarWidth()) {
+          $nextArrow.fadeOut('fast');
+          $prevArrow.fadeOut('fast');
+        }
+      }
+    }
+    $('.carousel.default')
+      .on('init', function(e, slick) {
+        hideDotsForCaption(slick, 0, 'hide');
+      })
+      .on('beforeChange', function(e, slick, currentSlide, nextSlide) {
+        hideDotsForCaption(slick, nextSlide);
+      });
+
+    // Binding
     $('.carousel.default').slick({
       lazyLoad: 'ondemand',
       dots: true,
-      arrows: false,
+      arrows: true,
       infinite: true,
       autoplay: true,
       autoplaySpeed: 4000,

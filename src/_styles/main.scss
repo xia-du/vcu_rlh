@@ -1,26 +1,21 @@
-// Settings
-@import 'partials/variables';
-@import 'partials/fonts';
-@import 'partials/typography';
-@import 'partials/layout';
-
-// Page CSS
-@import 'home';
-@import 'halls';
-@import 'room';
-@import 'application';
-@import 'life_on_campus';
-
 // Libs
 // Bootstrap
 // Using customized bootstrap
 @import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
 // Slick carousel
+$slick-font-path: '../fonts/';
 $slick-loader-path: '../images/';
+
 @import 'bower_components/slick-carousel/slick/slick.scss';
 @import 'bower_components/slick-carousel/slick/slick-theme.scss';
 // Animate.css
 @import 'bower_components/animate.css/animate';
+
+// Settings
+@import 'partials/variables';
+@import 'partials/fonts';
+@import 'partials/typography';
+@import 'partials/layout';
 
 // Import Modules
 @import '../_modules/link/link';
@@ -34,6 +29,19 @@ $slick-loader-path: '../images/';
 @import '../_modules/modal/modal';
 @import '../_modules/masonry/masonry';
 @import '../_modules/accordion/accordion';
+
+// Page CSS
+@import 'home';
+@import 'halls';
+@import 'room';
+@import 'application';
+@import 'life_on_campus';
+@import 'llp';
+@import 'llc';
+@import 'third_level';
+@import 'blog';
+@import 'post_page';
+
 
 // Typography
 h1 {

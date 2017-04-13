@@ -10,7 +10,7 @@
   {% set _primaryItems = _env.footer.primaryItems or '' %}
   {% set _secondaryItems = _env.footer.secondaryItems or '' %}
 
-  <footer>
+  <footer id="footer">
     <div class="container {{_class}}" id="{{_id}}">
 
       <div class="row">

@@ -13,6 +13,7 @@
 {% import "_modules/image/image.nunjucks" as image %}
 {% import "_modules/button/button.nunjucks" as button %}
 
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
 {% import "_modules/carousel/carousel.nunjucks" as carousel %}
 {% import "_modules/modal/modal.nunjucks" as modal %}
 {% import "_modules/masonry/masonry.nunjucks" as masonry %}
@@ -36,6 +37,319 @@
   }) }}
 {% endblock %}
 
+{% block scripts %}{% endblock %}
+
+{% set posts = [
+    {
+      title: 'Cras quis nulla commodo aliquam',
+      author: 'Rose Simmons',
+      postDate: 'May 13, 2016',
+      coverImg: 'https://unsplash.it/1280/720?image=65',
+      preview: 'Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor a tortor. Pellentesque non dignissim neque. Ut porta viverra est, ut dignissim elit elementum ut. Nunc vel rhoncus nibh, ut tincidunt turpis. Integer ac enim pellentesque, adipiscing metus id, pharetra odio. Donec bibendum nunc sit amet tortor scelerisque luctus et sit amet mauris. Suspendisse felis sem, condimentum ullamcorper est sit amet, molestie mollis nulla. Etiam lorem orci, consequat ac magna quis, facilisis vehicula neque.'
+    }, {
+      title: 'In hac habitasse platea dictumst vivamus',
+      author: 'Rose Simmons',
+      postDate: 'May 13, 2016',
+      coverImg: 'https://unsplash.it/1280/720?image=90',
+      preview: 'Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor a tortor. Pellentesque non dignissim neque. Ut porta viverra est, ut dignissim elit elementum ut. Nunc vel rhoncus nibh, ut tincidunt turpis. Integer ac enim pellentesque, adipiscing metus id, pharetra odio. Donec bibendum nunc sit amet tortor scelerisque luctus et sit amet mauris. Suspendisse felis sem, condimentum ullamcorper est sit amet, molestie mollis nulla. Etiam lorem orci, consequat ac magna quis, facilisis vehicula neque.'
+    }, {
+      title: 'Nam dapibus nisl vitae elit fringilla rutrum aenean so',
+      author: 'Rose Simmons',
+      postDate: 'May 13, 2016',
+      coverImg: 'https://unsplash.it/1280/720?image=110',
+      preview: 'Donec facilisis tortor ut augue lacinia, at viverra est semper. Sed sapien metus, scelerisque nec pharetra id, tempor a tortor. Pellentesque non dignissim neque. Ut porta viverra est, ut dignissim elit elementum ut. Nunc vel rhoncus nibh, ut tincidunt turpis. Integer ac enim pellentesque, adipiscing metus id, pharetra odio. Donec bibendum nunc sit amet tortor scelerisque luctus et sit amet mauris. Suspendisse felis sem, condimentum ullamcorper est sit amet, molestie mollis nulla. Etiam lorem orci, consequat ac magna quis, facilisis vehicula neque.'
+    }
+  ]
+%}
+
 {% block content %}
-<p>blog page</p>
+  <div class="blog">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{carousel.content({
+          id: 'life-on-campus-carousel',
+          type: 'background',
+          imgs: [{
+            src: 'https://unsplash.it/1600/900?image=0',
+            alt: 'life on campus carousel slide',
+
+            overlayCaption: true,
+            overlayText: 'Everything You Need to Know About Move-in',
+            overlayTextLink: '#',
+            overlayDescription: 'Commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientcommodo ligula eget dolor.'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=10',
+            alt: 'life on campus carousel slide',
+
+            overlayCaption: true,
+            overlayText: 'Example Title',
+            overlayTextLink: '#',
+            overlayDescription: 'Commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientcommodo ligula eget dolor.'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=20',
+            alt: 'life on campus carousel slide'
+          }, {
+            src: 'https://unsplash.it/1600/900?image=60',
+            alt: 'life on campus carousel slide',
+
+            overlayCaption: true,
+            overlayText: 'Example Title',
+            overlayDescription: 'Commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturientcommodo ligula eget dolor.'
+          }
+        ]
+      })}}
+      </div>
+    </section>
+
+    <section class="hidden-xs">
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+        <div class="row featured-posts-top">
+          <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="row">
+              <div class="col-sm-4">
+                {{image.content({
+                  src: 'https://unsplash.it/320/180?image=60',
+                  overlayText: 'Ugh Bicycle Rights'
+                })}}
+              </div>
+              <div class="col-sm-4">
+                {{image.content({
+                  src: 'https://unsplash.it/320/180?image=80',
+                  overlayText: 'Fashion Axe Banksy'
+                })}}
+              </div>
+              <div class="col-sm-4">
+                {{image.content({
+                  src: 'https://unsplash.it/320/180?image=100',
+                  overlayText: 'Food Truck Gastropub'
+                })}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator hidden-xs">
+      <hr class="hr-primary left">
+    </section>
+
+
+    <section>
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+      <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12">
+          <div class="row">
+            <div class="blog-main-content col-sm-8">
+              {% for post in posts %}
+                <div class="post">
+                  <div class="post-title">
+                    <a href="/blog/post.html">
+                      <h2>
+                        {{post.title}}
+                      </h2>
+                    </a>
+                  </div>
+                  <div class="post-meta">
+                    <ul>
+                      <li>{{post.author}}</li>
+                      <li>{{post.postDate}}</li>
+                    </ul>
+                  </div>
+                  <div class="post-cover">
+                    <a href="/blog/post.html">
+                      {{image.content({
+                        src: post.coverImg
+                      })}}
+                    </a>
+                  </div>
+                  <div class="post-preview">
+                    <p>
+                      {{post.preview}}
+                    </p>
+                  </div>
+                  <div class="post-action">
+                    {{button.content({
+                      tag: 'a',
+                      text: 'Read More',
+
+                      link: '/blog/post.html'
+
+                    })}}
+                  </div>
+                </div>
+              {% endfor %}
+
+
+              <div class="text-center" aria-label="Page navigation">
+                <ul class="pagination">
+                  <li>
+                    <a href="#" aria-label="Previous">
+                      <span aria-hidden="true">&laquo;</span>
+                    </a>
+                  </li>
+                  <li class="active"><a href="#">1</a></li>
+                  <li><a href="#">2</a></li>
+                  <li><a href="#">3</a></li>
+                  <li><a href="#">4</a></li>
+                  <li><a href="#">5</a></li>
+                  <li>
+                    <a href="#" aria-label="Next">
+                      <span aria-hidden="true">&raquo;</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="blog-sidebar col-sm-3 col-sm-push-1 hidden-xs">
+              <div class="blog-categories">
+                <div class="title">
+                  <h4>Categories</h4>
+                </div>
+                <ul>
+                  <li><a href="#">Academic</a></li>
+                  <li><a href="#">Entertainment</a></li>
+                  <li><a href="#">Social Life</a></li>
+                  <li><a href="#">Sustainability</a></li>
+                </ul>
+              </div>
+              <div class="blog-tags">
+                <div class="title">
+                  <h4>Tags</h4>
+                </div>
+                <ul>
+                  <li><a href="#">Roommate</a></li>
+                  <li><a href="#">Move In/Out</a></li>
+                  <li><a href="#">Rams</a></li>
+                  <li><a href="#">Leadership</a></li>
+                  <li><a href="#">Final</a></li>
+                  <li><a href="#">GRC</a></li>
+                  <li><a href="#">Gym</a></li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+          <section class="section-gray-lighter" id="featured-posts-section">
+            <div class="container">
+              <div class="title">
+                <h2>
+                  Featured Posts
+                </h2>
+              </div>
+
+              <div class="row featured-posts">
+                <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                      <div class="row">
+
+                        <div class="col-xs-12 col-sm-4">
+                          {{image.content({
+                            src: 'https://source.unsplash.com/category/people/400x300',
+                            alt: 'blog image',
+                            class: 'no-margin-top',
+
+                            overlayClass: 'sm-caption',
+                            overlayCaption: true,
+                            overlayText: 'Sustainability'
+                          })}}
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                          {{image.content({
+                            src: 'https://source.unsplash.com/category/technology/400x300',
+                            alt: 'blog image',
+
+                            overlayClass: 'sm-caption',
+                            overlayCaption: true,
+                            overlayText: 'Social'
+                          })}}
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                          {{image.content({
+                            src: 'https://source.unsplash.com/category/objects/400x300',
+                            alt: 'blog image',
+
+                            overlayClass: 'sm-caption',
+                            overlayCaption: true,
+                            overlayText: 'Academic'
+                          })}}
+                        </div>
+
+                      </div>
+
+                      <div class="row featured-posts">
+
+                        <div class="col-xs-12 col-sm-4">
+                          {{image.content({
+                            src: 'https://source.unsplash.com/category/people/400x300',
+                            alt: 'blog image',
+                            class: 'no-margin-top',
+
+                            overlayClass: 'sm-caption',
+                            overlayCaption: true,
+                            overlayText: 'Sustainability'
+                          })}}
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                          {{image.content({
+                            src: 'https://source.unsplash.com/category/technology/400x300',
+                            alt: 'blog image',
+
+                            overlayClass: 'sm-caption',
+                            overlayCaption: true,
+                            overlayText: 'Social'
+                          })}}
+                        </div>
+
+                        <div class="col-xs-12 col-sm-4">
+                          {{image.content({
+                            src: 'https://source.unsplash.com/category/objects/400x300',
+                            alt: 'blog image',
+
+                            overlayClass: 'sm-caption',
+                            overlayCaption: true,
+                            overlayText: 'Academic'
+                          })}}
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
 {% endblock %}

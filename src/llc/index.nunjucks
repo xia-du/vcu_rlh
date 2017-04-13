@@ -1,0 +1,387 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% set secondaryNav = [{
+    name: 'What\'s LLC',
+    link: '#what-is-llc'
+  }, {
+    name: 'Programs-In-Residence',
+    link: '#programs-in-residence-intro'
+  }, {
+    name: 'Theme Communities',
+    link: '#theme-communities-intro'
+  }, {
+    name: 'Apply',
+    link: '#apply'
+  }]
+%}
+
+{% set pirs = [
+  {
+    name: 'mosaic',
+    logoName: 'mosaic',
+    logoLink: '/images/llc/mosaic-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=400',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'thrive',
+    logoName: 'thrive',
+    logoLink: '/images/llc/thrive-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=401',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'lead explorers',
+    logoName: 'lead_ex',
+    logoLink: '/images/llc/lead_ex-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=402',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'lavender house',
+    logoName: 'lavender',
+    logoLink: '/images/llc/lavender-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=403',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'ecovillage',
+    logoName: 'ecovillage',
+    logoLink: '/images/llc/ecovillage-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=404',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'global village',
+    logoName: 'global_village',
+    logoLink: '/images/llc/global_village-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=405',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }
+] %}
+
+{% set tcs = [
+  {
+    name: 'outdoor adventures',
+    logoName: 'outdoor',
+    logoLink: '/images/llc/outdoor-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=500',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'acceleration',
+    logoName: 'acceleration',
+    logoLink: '/images/llc/acceleration-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=501',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'artist colony',
+    logoName: 'artist_colony',
+    logoLink: '/images/llc/art_colony-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=502',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'emerging leaders',
+    logoName: 'emerging',
+    logoLink: '/images/llc/emerging-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=503',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'engage',
+    logoName: 'engage',
+    logoLink: '/images/llc/engage-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=504',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'vc-you',
+    logoName: 'vc-you',
+    logoLink: '/images/llc/vc-you-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=505',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }, {
+    name: 'women in leadership',
+    logoName: 'women',
+    logoLink: '/images/llc/women-4c.svg',
+    imageLink: 'https://unsplash.it/800/600?image=506',
+    description: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+  }
+] %}
+
+{% set testimonials =
+  [{
+    img: 'https://unsplash.it/800/600?image=400',
+    quote: {
+      body: 'Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.',
+      name: 'Austin Buchanan',
+      title: 'ASPiRE member'
+    }
+  }, {
+    img: 'https://unsplash.it/800/600?image=500',
+    quote: {
+      body: 'Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.',
+      name: 'Austin Buchanan',
+      title: 'ASPiRE member'
+    }
+  }, {
+    img: 'https://unsplash.it/800/600?image=600',
+    quote: {
+      body: 'Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.',
+      name: 'Austin Buchanan',
+      title: 'ASPiRE member'
+    }
+  }]
+%}
+
+
+{% block scripts %}
+<script src="/scripts/pages/llc.js" charset="utf-8"></script>
+{% endblock %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data,
+    secondaryItems: secondaryNav
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block content %}
+    <div class="llc">
+      <section class="section-hero">
+        <div class="hero">
+          {{image.content({
+            src: '/images/application_hero.jpg',
+            alt: 'Application page hero-image',
+            id: 'home-carousel',
+            type: 'background',
+            overlayText: '<h1>Living Learning Communities</h1>',
+            overlayTextWithTag: true,
+            overlayFont: 'font-family: SummerHeart;',
+            overlayColor: 'rgba(221, 72, 161, .5)'
+          })}}
+        </div>
+      </section>
+
+      <section id="what-is-llc">
+        <div class="container">
+
+          {# <div class="title">
+            <h2>
+              Title
+            </h2>
+          </div> #}
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <p class="lead">
+                      Living-Learning Communities are designed to integrate unique on-campus living with a focused academic experience. The mix of curricular and co-curricular activities enables students to apply classroom learning in real-world experiences.
+                    </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-separator">
+        <hr class="hr-primary left">
+      </section>
+
+      <section class="no-padding-bot" id="programs-in-residence-intro">
+        <div class="container">
+
+          <div class="title">
+            <h2>
+              Programs-in-Residence
+            </h2>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p>Programs-in-Residence are a residential experience that offers students interested in a shared topic the opportunity to live together in a dedicated residential area. Programs-in-Residence support high levels of student interaction, increased interaction with faculty outside of the classroom, and collaboration through the use of strategies such as a required class on the given topic, study groups, and programming.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-padding" id="programs-in-residence">
+        <div class="row">
+          <div class="pir-slider" id="pir-slider">
+            {% for pir in pirs %}
+            <div class="pir-slide" data-target="#pir-{{loop.index}}" id="{{pir.id}}">
+              <div class="pir-logo">
+                {{image.content({
+                  src: pir.logoLink,
+                  alt: pir.name
+                })}}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-gray-lighter" id="programs-in-residence-info">
+        <div class="container">
+          <div id="pir-info-slider">
+            {% for pir in pirs %}
+              <div class="row pir-info" id="pir-{{loop.index}}">
+                <div class="col-xs-12 col-sm-4 pir-image">
+                  {{image.content({
+                    src: pir.imageLink,
+                    alt: pir.name + ' image'
+                  })}}
+                </div>
+                <div class="col-xs-12 col-sm-8 pir-description">
+                  <h3>{{pir.name}}</h3>
+                  <p>
+                    {{pir.description}}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+
+      <section class="no-padding-bot" id="theme-communities-intro">
+        <div class="container">
+
+          <div class="title">
+            <h2>
+              Theme Communities
+            </h2>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <p>Theme Communities are a residential experience that offers students who have special interests or lifestyle preferences the opportunity to live and study together. Theme Communities provide participating students with co-curricular activities that may be initiated and led by either students or by university faculty/staff. There is no class requirement for these communities.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-padding" id="theme-communities">
+        <div class="row">
+          <div class="pir-slider" id="tc-slider">
+            {% for tc in tcs %}
+            <div class="pir-slide" data-target="#pir-{{loop.index}}" id="{{tc.id}}">
+              <div class="pir-logo">
+                {{image.content({
+                  src: tc.logoLink,
+                  alt: tc.name
+                })}}
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-gray-lighter" id="theme-communities-info">
+        <div class="container">
+          <div id="tc-info-slider">
+            {% for tc in tcs %}
+              <div class="row pir-info" id="pir-{{loop.index}}">
+                <div class="col-xs-12 col-sm-4 pir-image">
+                  {{image.content({
+                    src: tc.imageLink,
+                    alt: tc.name + ' image'
+                  })}}
+                </div>
+                <div class="col-xs-12 col-sm-8 pir-description">
+                  <h3>{{tc.name}}</h3>
+                  <p>
+                    {{tc.description}}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+
+      <section id="apply">
+        <div class="container">
+
+          <div class="title">
+            <h2>
+              How to apply
+            </h2>
+          </div>
+
+          <div class="row">
+            <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+              <div class="row">
+                <div class="col-md-10 col-md-offset-1">
+                  <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12">
+                    <p>
+                      Living-Learning Communities have a separate selection process and require students to complete an application to the program in addition to the regular Housing Application. Living-Learning Community Applications can be accessed through the online Housing Application. Each program has different requirements, so make sure to review the application in full. Please review all the options because you can only apply for one.
+                    </p>
+                    <div class="alert alert-danger" role="alert">
+                      Currently, the 2016-17 Freshmen Living-Learning Community application is closed.
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section-help_center">
+        {{help.content()}}
+      </section>
+    </div>
+
+{% endblock %}

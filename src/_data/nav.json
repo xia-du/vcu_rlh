@@ -11,9 +11,12 @@
   "name": "application",
   "link": "/application"
 }, {
+  "name": "blog",
+  "link": "/blog"
+}, {
   "name": "about",
-  "link": "/about"
+  "link": "/#"
 }, {
   "name": "contact",
-  "link": "/contact"
+  "link": "/#"
 }]

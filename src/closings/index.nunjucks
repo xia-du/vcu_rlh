@@ -1,0 +1,212 @@
+{% extends '_layouts/base.nunjucks' %}
+
+{% block config %}
+  {# Correct base url pathing for this page #}
+  {% set baseUrl = '../' %}
+{% endblock %}
+
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
+{% block content %}
+  <div class="closings">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{image.content({
+          src: '/images/application_hero.jpg',
+          alt: 'Closisng page hero-image',
+          type: 'background',
+          overlayText: '<h1 class="text-uppercase">Winter Break Closings</h1>',
+          overlayTextWithTag: true
+        })}}
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="lead">
+                  <strong>Brandt, Johnson, Rhoads, Honors, Cary & Belvidere, Cabaniss and Gladding Residence Center (GRC)</strong> will close on December 21 at 10AM.
+                </p>
+                <p> Residents are required to vacate the building within 24 hours of their last exam. Please make travel arrangements to ensure you are checked out of the building by this time. The building will reopen January 13 at 10AM. Please note, the offices and mailroom will be closed during this time as well.
+                </p>
+                <p>
+                  As you leave for the holiday please remember the following items:
+                </p>
+                <p>
+                  <ul>
+                    <li>Turn off all lights</li>
+                    <li>Turn off water faucets</li>
+                    <li>Unplug small appliances and other electrical items like computers</li>
+                    <li>Defrost and unplug refrigerators</li>
+                    <li>Remove and open or perishable food</li>
+                    <li>Close and lock all windows</li>
+                    <li>Close all blinds</li>
+                    <li>Take any plants or fish home</li>
+                    <li>Set thermostat at 60 degrees and turn off fan</li>
+                    <li>Take home valuables and medications</li>
+                    <li>Before leaving be sure to take your keys and ID & make sure your door is securely locked</li>
+                    <li>Sign-up for a day and time to check-out with RA</li>
+                  </ul>
+                </p>
+                <p>If you have any questions please feel free to follow up with your RA. All RAs will hold floor meetings prior to closing to ensure all residents are aware of the closing procedures. Safe travels and have a wonderful break.</p>
+                <p class="lead">
+                  <strong>Ackell, Broad & Belvidere, Grace & Broad, West Grace North and West Grace South</strong> will remain open, but the area office and mailroom will be closed from December 21 at 12:00pm —January 3 at 8am.
+                </p>
+                <p>
+                  If you decide to leave for the holiday, please remember the following items:
+                </p>
+                <p>
+                  <ul>
+                    <li>Turn off all lights</li>
+                    <li>Turn off water faucets</li>
+                    <li>Unplug small appliances and other electrical items like computers</li>
+                    <li>Clean all perishable foods from refrigerator</li>
+                    <li>Remove all trash from your apartment/living space</li>
+                    <li>Close and lock all windows</li>
+                    <li>Close all mini blinds</li>
+                    <li>Take home valuables and medications</li>
+                  </ul>
+                </p>
+                  <p>
+                    Before leaving, be sure to take your keys and ID & make sure your door is securely locked
+                  </p>
+                  <p>
+                    Please remember to carry your ID and key with you if you remain in the building during break. If you are locked out, you may experience some delay in service due to limited staff availability.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-hero">
+      <div class="hero">
+        {{image.content({
+          src: '/images/application_hero.jpg',
+          alt: 'Closisng page hero-image',
+          type: 'background',
+          overlayText: '<h1 class="text-uppercase">Thanksgiving Break Closings</h1>',
+          overlayTextWithTag: true
+        })}}
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="lead">
+                  <strong>Brandt, Johnson, Rhoads, Honors, Cary & Belvidere, Cabaniss and Gladding Residence Center (GRC)</strong> will close on December 21 at 10AM.
+                </p>
+                <p> Residents are required to vacate the building within 24 hours of their last exam. Please make travel arrangements to ensure you are checked out of the building by this time. The building will reopen January 13 at 10AM. Please note, the offices and mailroom will be closed during this time as well.
+                </p>
+                <p>
+                  As you leave for the holiday please remember the following items:
+                </p>
+                <p>
+                  <ul>
+                    <li>Turn off all lights</li>
+                    <li>Turn off water faucets</li>
+                    <li>Unplug small appliances and other electrical items like computers</li>
+                    <li>Defrost and unplug refrigerators</li>
+                    <li>Remove and open or perishable food</li>
+                    <li>Close and lock all windows</li>
+                    <li>Close all blinds</li>
+                    <li>Take any plants or fish home</li>
+                    <li>Set thermostat at 60 degrees and turn off fan</li>
+                    <li>Take home valuables and medications</li>
+                    <li>Before leaving be sure to take your keys and ID & make sure your door is securely locked</li>
+                    <li>Sign-up for a day and time to check-out with RA</li>
+                  </ul>
+                </p>
+                <p>If you have any questions please feel free to follow up with your RA. All RAs will hold floor meetings prior to closing to ensure all residents are aware of the closing procedures. Safe travels and have a wonderful break.</p>
+                <p class="lead">
+                  <strong>Ackell, Broad & Belvidere, Grace & Broad, West Grace North and West Grace South</strong> will remain open, but the area office and mailroom will be closed from December 21 at 12:00pm —January 3 at 8am.
+                </p>
+                <p>
+                  If you decide to leave for the holiday, please remember the following items:
+                </p>
+                <p>
+                  <ul>
+                    <li>Turn off all lights</li>
+                    <li>Turn off water faucets</li>
+                    <li>Unplug small appliances and other electrical items like computers</li>
+                    <li>Clean all perishable foods from refrigerator</li>
+                    <li>Remove all trash from your apartment/living space</li>
+                    <li>Close and lock all windows</li>
+                    <li>Close all mini blinds</li>
+                    <li>Take home valuables and medications</li>
+                  </ul>
+                </p>
+                  <p>
+                    Before leaving, be sure to take your keys and ID & make sure your door is securely locked
+                  </p>
+                  <p>
+                    Please remember to carry your ID and key with you if you remain in the building during break. If you are locked out, you may experience some delay in service due to limited staff availability.
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
+{% endblock %}

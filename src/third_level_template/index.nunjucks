@@ -5,6 +5,210 @@
   {% set baseUrl = '../' %}
 {% endblock %}
 
+{% import "_modules/navigation/navigation.nunjucks" as navigation %}
+{% import "_modules/header/header.nunjucks" as header %}
+{% import "_modules/footer/footer.nunjucks" as footer %}
+
+{% import "_modules/link/link.nunjucks" as link %}
+{% import "_modules/image/image.nunjucks" as image %}
+{% import "_modules/button/button.nunjucks" as button %}
+
+{% import "_modules/accordion/accordion.nunjucks" as accordion %}
+{% import "_modules/carousel/carousel.nunjucks" as carousel %}
+{% import "_modules/modal/modal.nunjucks" as modal %}
+{% import "_modules/masonry/masonry.nunjucks" as masonry %}
+{% import "_modules/help/help.nunjucks" as help %}
+
+{% block navigation %}
+  {{ navigation.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block header %}
+  {{ header.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block footer %}
+  {{ footer.content({
+    env: site.data
+  }) }}
+{% endblock %}
+
+{% block scripts %}{% endblock %}
+
 {% block content %}
-<p>third_level_template page</p>
+  <div class="third-level-page">
+
+    <section class="section-hero">
+      <div class="hero">
+        {{image.content({ src: '/images/application_hero.jpg', alt: 'Application page hero-image', id: 'home-carousel', type: 'background', overlayText: '<h1 class="text-uppercase">Hall And Community Councils</h1>', overlayTextWithTag: true, overlayColor:
+        'rgba(204, 120, 81, .5)' })}}
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+
+        {# <div class="title">
+          <h2>
+            Join us
+          </h2>
+        </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="lead">
+                  Hall & Community Council representatives listen to the concerns of students living in the residence halls and work to improve the quality of life on campus. Their goal is to promote a sense of community pride in the residence hall and to plan
+                  activities designed to generate involvement.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator">
+      <hr class="hr-primary left">
+    </section>
+
+    <section>
+      <div class="container">
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="row">
+                  <div class="side-gallery col-xs-12 col-md-5">
+                    <div class="row">
+                      <div class="col-sm-6 col-md-12">
+                        {{image.content({
+
+                        })}}
+                      </div>
+                      <div class="col-sm-6 col-md-12 hidden-xs">
+                        {{image.content({
+
+                        })}}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="body col-xs-12 col-md-7">
+                    <p>
+                      Hall & Community Council is one of the first ways to get involved on campus. They are the voice of the students they represent. Hall Councils are designed for the traditional first year student buildings and Community Councils are designed for the
+                      upperclassmen apartment style living environments on campus.
+                    </p>
+                    <p>
+                      Hall & Community Councils serve as the governing boards for each of the residential communities on campus, engaging in programming, advocacy, and other initiatives relevant to their constitutions. Hall & Community Councils vary in size and
+                      composition, but all have the same core function – to serve the residents in the hall. Hall & Community Councils typically meet weekly to plan programs and other initiatives, discuss issues facing their residents, and hear reports from various
+                      members on their activities for the week.
+                    </p>
+                    <div class="visible-xs-block visible-sm-block">
+                      <p>
+                        {{image.content({
+
+                        })}}
+                      </p>
+                    </div>
+                    <p>
+                      Elections for hall and community council positions take place early in the fall semester. Every hall and community council has a place for you! Those elected or appointed to hall and community council positions attend a training retreat early in the
+                      fall semester, facilitated by the RHA Executive Board, to prepare them. In addition to hall activities, each hall and community council also sends a representative to represent the hall as part of the RHA General Assembly. These representatives
+                      attend weekly meetings, which are open to all students and take place at 6pm in West Grace North’s Large Community Room (1030J).
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-separator">
+      <hr class="hr-primary right">
+    </section>
+
+    <section class="no-padding-bot">
+      <div class="container">
+
+        {# <div class="title">
+              <h2>
+                Join us
+              </h2>
+            </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <p class="lead">
+                  To get involved, contact your Hall Director of RHA representative or leave us a message below
+                </p>
+                <div class="scroll-down-sign">
+                  <i class="fa fa-angle-double-down scroll-down-sign"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-gray-lighter section-form">
+      <div class="container">
+
+        {# <div class="title">
+              <h2>
+                Join us
+              </h2>
+            </div> #}
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-10 col-md-offset-1">
+            <div class="row">
+              <div class="col-md-10 col-md-offset-1">
+                <form>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputName">Name</label>
+                        <input type="name" class="form-control" id="inputName" placeholder="John Doe">
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="form-group">
+                        <label for="exampleInputFile">Message</label>
+                        <textarea class="form-control" rows="5"></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-help_center">
+      {{help.content()}}
+    </section>
+
+  </div>
 {% endblock %}

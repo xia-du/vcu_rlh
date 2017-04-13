@@ -1,0 +1,78 @@
+// Home page styles
+$padding-base: 15px;
+
+.post-page {
+  .title {
+    .meta {
+      ul {
+        font-weight: 500;
+
+        padding-left: 0;
+
+        color: $gray-light;
+        li {
+          display: inline-block;
+          &:first-child {
+            padding-right: 15px;
+          }
+        }
+      }
+    }
+  }
+
+  #related-posts-section {
+    .related-posts {
+      margin-top: $margin-base;
+
+      figure {
+
+        img {
+          margin-top: $margin-base;
+
+          &.no-margin-top {
+            margin-top: 0;
+          }
+        }
+
+        figcaption {
+          padding-right: 0;
+          padding-left: 0;
+
+          text-align: left;
+
+          color: $gray-dark;
+
+          i {
+            font-family: $font-family-sans-serif;
+            font-style: normal;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-xs) {
+  .post-page {
+  }
+}
+
+@media (min-width: $screen-sm) {
+  .post-page {
+    #related-posts-section {
+      .related-posts {
+        margin-top: $margin-sm;
+        figure {
+          img {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $screen-md) {
+}
+@media (min-width: $screen-lg) {
+}

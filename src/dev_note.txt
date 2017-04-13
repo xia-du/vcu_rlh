@@ -4,6 +4,9 @@ Todos:
 3. link for the Application portal.
 4. Update navigation module for limiting the amount of sub labels to a certain number. Also check mobile secondary menu's scrolling.
 
+Improved:
+1. life on campus page > event description > carousel changed to image
+
 Improvements:
 1. Image module can support overlay image;
 2. Image module can support overlay caption with hover effect;

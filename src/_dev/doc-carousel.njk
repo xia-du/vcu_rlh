@@ -1,4 +1,10 @@
 {# Description #}
+<p>
+  Dependency:
+    <ul>
+      <li><a href="#image">Image module</a></li>
+    </ul>
+</p>
 
 <p>
   See
@@ -12,132 +18,29 @@
 {# Content #}
 {# Default carousel #}
 
-{% set defaultCarousel =
-  carousel.content({
-    imgs: [{
-      src: 'https://unsplash.it/1600/900?image=0',
-      alt: 'mobile slide 1'
-    }, {
-      src: 'https://unsplash.it/1600/900?image=1',
-      alt: 'mobile slide 2'
-    }, {
-      src: 'https://unsplash.it/1600/900?image=2',
-      alt:'mobile slide 3'
-    }]
-  })
-%}
-{% set defaultCarouselCode =
-"carousel.content({
-  imgs: [{
-    src: 'https://unsplash.it/1600/900?image=0',
-    alt: 'mobile slide 1'
-  }, {
-    src: 'https://unsplash.it/1600/900?image=1',
-    alt: 'mobile slide 2'
-  }, {
-    src: 'https://unsplash.it/1600/900?image=2',
-    alt:'mobile slide 3'
-  }]
-})"
-%}
-
-<h3>Default carousel</h3>
-<div class="panel panel-default">
-
-  <div class="panel-body">
-    {{ defaultCarousel }}
-  </div>
-
-  <div class="panel-footer">
-    <pre>{{ defaultCarouselCode }}</pre>
-  </div>
-</div>
-
-{# Default carousel with border #}
-
-{% set defaultCarouselWithBorder =
-  carousel.content({
-    class: 'default with-border',
-    imgs: [{
-      src: 'https://unsplash.it/1600/900?image=0',
-      alt: 'mobile slide 1'
-    }, {
-      src: 'https://unsplash.it/1600/900?image=1',
-      alt: 'mobile slide 2'
-    }, {
-      src: 'https://unsplash.it/1600/900?image=2',
-      alt:'mobile slide 3'
-    }]
-  })
-%}
-{% set defaultCarouselCodeWithBorder =
-"carousel.content({
-  class: 'default with-border',
-  imgs: [{
-    src: 'https://unsplash.it/1600/900?image=0',
-    alt: 'mobile slide 1'
-  }, {
-    src: 'https://unsplash.it/1600/900?image=1',
-    alt: 'mobile slide 2'
-  }, {
-    src: 'https://unsplash.it/1600/900?image=2',
-    alt:'mobile slide 3'
-  }]
-})"
-%}
-
-<h3>Default carousel with border</h3>
-<p>
-  <code>{ class: 'default with-border' }</code> add borders for design purposes.
-</p>
-<div class="panel panel-default">
-
-  <div class="panel-body">
-    {{ defaultCarouselWithBorder }}
-  </div>
-
-  <div class="panel-footer">
-    <pre>{{ defaultCarouselCodeWithBorder }}</pre>
-  </div>
-</div>
-
-{# Carousel with caption and/or CTA #}
-
 {% set defaultCarouselWithCaptionOrCTA =
   carousel.content({
     imgs: [{
+      src: 'https://unsplash.it/1600/1200?image=2',
+      alt:'mobile slide 1'
+    }, {
       src: 'https://unsplash.it/1600/1200?image=0',
-      alt: 'mobile slide 1',
-      overlay: {
-        title: 'Example Title 1',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-        cta: {
-          text: 'Learn More',
-          link: '#'
-        }
-      }
+      alt: 'mobile slide 2',
+
+      overlayCta: true,
+      overlayCtaText: 'Learn More',
+      overlayCtaLink: 'https://vcu.edu',
+
+      overlayText: 'Example with overlay',
+      overlayDescription: 'Example description of a image with default overlay. This description is optional and <strong class="text-primary">will be hidden in small screens</strong>.'
     }, {
       src: 'https://unsplash.it/1600/1200?image=1',
-      alt: 'mobile slide 2',
-      overlay: {
-        title: 'Example Title 2 is longer than the other ones',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-        cta: {
-          text: 'Learn More',
-          link: '#'
-        }
-      }
-    }, {
-      src: 'https://unsplash.it/1600/1200?image=2',
-      alt:'mobile slide 3',
-      overlay: {
-        title: 'Example Title 3',
-        body: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor.',
-        cta: {
-          text: 'Learn More',
-          link: '#'
-        }
-      }
+      alt: 'mobile slide 3',
+
+      overlayCaption: true,
+
+      overlayText: 'Example with overlay caption',
+      overlayDescription: 'Example description of a image with default overlay. This description is optional and will be hidden in small screens.'
     }]
   })
 %}
@@ -180,23 +83,15 @@
 })"
 %}
 
-<h3>Default carousel with overlay</h3>
-<pre>
-
-  { overlay: {
-      title: 'title',
-      body: 'body text',
-      cta: {
-        text: 'cta-text',
-        link: 'cta-link'
-      }
-    }
-  }
-
-</pre>
+<h3>Default carousel</h3>
 <br>
 <p>
-  Add overlay content. CTA button and description text only show on desktop. (>768px)
+  All the variations provided by the <a href="#image">Image Module</a> are available.
+  <ul>
+    <li>Slide 1: image</li>
+    <li>Slide 2: image with overlay</li>
+    <li>Slide 3: image with overlay caption</li>
+  </ul>
 </p>
 <div class="panel panel-default">
 
@@ -225,13 +120,13 @@
       alt: 'mobile slide 3'
     }],
     mdImgs: [{
-      src: 'https://unsplash.it/1600/900?image=10',
+      src: 'https://unsplash.it/1200/900?image=10',
       alt: 'tablet and desktop slide 1'
     }, {
-      src: 'https://unsplash.it/1600/900?image=11',
+      src: 'https://unsplash.it/1200/900?image=11',
       alt: 'tablet and desktop slide 2'
     }, {
-      src: 'https://unsplash.it/1600/900?image=12',
+      src: 'https://unsplash.it/1200/900?image=12',
       alt: 'tablet and desktop slide 3'
     }],
     lgImgs: [{

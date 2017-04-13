@@ -1,11 +1,34 @@
 $(document)
   .ready(function() {
-    console.log('life on campus page');
+    console.log('llp');
 
     var $eventsSlider = $('#events-slider');
     var $eventsInfoSlider = $('#events-info-slider');
+    var $testimonialSlider = $('#testimonial-slider');
 
-    $eventsInfoSlider.slick({asNavFor: '#events-slider', arrows: false, infinite: false, fade: true, draggable: false});
+    $testimonialSlider.slick({
+      autoplay: true,
+      autoplaySpeed: 4000,
+      arrows: false,
+      fade: true,
+      mobileFirst: true,
+      responsive: [
+        {
+          breakpoint: 767,
+          settings: {
+            dots: true
+          }
+        }
+      ]
+    });
+
+    $eventsInfoSlider.slick({
+      asNavFor: '#events-slider',
+      arrows: false,
+      infinite: false,
+      fade: true,
+      draggable: false
+    });
 
     $eventsSlider.slick({
       slidesToShow: 1,
@@ -45,7 +68,7 @@ $(document)
         }, {
           breakpoint: 992,
           settings: {
-            slidesToShow: 5,
+            slidesToShow: 4,
             slidesToScroll: 1,
             centerMode: false,
             variableWidth: false,

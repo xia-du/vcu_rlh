@@ -5,29 +5,35 @@ export default class Image {
     this.name = 'image';
     var hoverableOverlays = $('figure').find('.img-overlay.overlay-hoverable');
 
-    hoverableOverlays.each(function(index, el) {
+    function resetHeight() {
+      $('.img-overlay').css('height', '');
+    }
 
-      var height = 0;
+    hoverableOverlays
+      .each(function(index, el) {
 
-      height = $(el).outerHeight();
+        var height = 0;
 
-      $(el)
-        .parent('.img-wrap')
-        .hover(function() {
-          $(el).animate({
-            height: '100%'
-          }, 'fast');
-          $(el)
-            .find('.overlay-description')
-            .fadeIn('fast', function() {});
-        }, function() {
-          $(el).animate({
-            height: height + 'px'
-          }, 'fast');
-          $(el)
-            .find('.overlay-description')
-            .fadeOut('fast', function() {});
-        });
-    });
+        $(el)
+          .parent('.img-wrap')
+          .hover(function() {
+            height = $(el).outerHeight();
+            $(el).animate({
+              height: '100%'
+            }, 'fast');
+            $(el)
+              .find('.overlay-description')
+              .fadeIn('fast', function() {});
+          }, function() {
+            $(el).animate({
+              height: height + 'px'
+            }, 'fast', resetHeight);
+            $(el)
+              .find('.overlay-description')
+              .fadeOut('fast', function() {
+                $(this).css('display', 'none');
+              });
+          });
+      });
   }
 }
