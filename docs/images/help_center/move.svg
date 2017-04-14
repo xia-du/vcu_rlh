@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="100px" height="100px" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>move</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="help_center_icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="move">
+            <rect id="Rectangle" x="0" y="0" width="100" height="100"></rect>
+            <g id="noun_546306" transform="translate(15.000000, 10.000000)" fill-rule="nonzero" fill="#FFFFFF">
+                <g id="Group">
+                    <path d="M28.0646336,10.2866668 L28.0646336,6.68306322 L6.43728135,6.68306322 L6.43728135,13.8902704 L20.8555161,13.8902704 L20.8555161,62.8992794 L28.0646336,62.8992794 L28.0646336,10.2866668 Z M28.0646336,55.6920722 L64.1102206,55.6920722 L64.1102206,62.8992794 L28.0646336,62.8992794 L28.0646336,55.6920722 Z" id="Shape" transform="translate(35.273751, 34.791171) rotate(-15.000000) translate(-35.273751, -34.791171) "></path>
+                    <rect id="Rectangle-path" transform="translate(46.055447, 41.602883) rotate(-15.000000) translate(-46.055447, -41.602883) " x="32.3581235" y="32.2335135" width="27.3946462" height="18.7387387"></rect>
+                    <rect id="Rectangle-path" transform="translate(40.644308, 21.414241) rotate(-15.000000) translate(-40.644308, -21.414241) " x="26.9469845" y="12.0448712" width="27.3946462" height="18.7387387"></rect>
+                    <ellipse id="Oval" transform="translate(28.623801, 65.672072) rotate(-15.000000) translate(-28.623801, -65.672072) " cx="28.6238007" cy="65.6720721" rx="11.5345879" ry="11.5315315"></ellipse>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
