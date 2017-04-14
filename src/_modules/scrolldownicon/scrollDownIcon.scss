@@ -1,0 +1,110 @@
+// scrolldownicon styles
+.scroll-down-icon {
+
+  .arrow-container {
+    position: fixed;
+    z-index: 20000;
+    right: 100px;
+    bottom: 100px; // margin + height
+
+    margin: 1em;
+  }
+
+  .arrow-1 {
+    position: absolute;
+
+    width: 100px;
+    height: 100px;
+
+    opacity: .5;
+    border-radius: 50%;
+    background: $brand-primary;
+  }
+
+  .arrow-2 {
+    position: absolute;
+    z-index: 1;
+    top: 20px;
+    left: 20px;
+
+    display: table;
+
+    width: 60px;
+    height: 60px;
+
+    border-radius: 50%;
+    background: $brand-primary;
+  }
+
+  .arrow-2:before {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+
+    width: 52px;
+    height: 52px;
+
+    content: '';
+
+    border: 2px solid $brand-primary;
+    border-radius: 50%;
+  }
+
+  .arrow-2 i.fa {
+    font-size: 30px;
+
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+
+    color: $white;
+  }
+
+  /* Custom Animate.css */
+
+  .animated.hinge {
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+  }
+
+  @-webkit-keyframes zoomIn {
+    0% {
+      -webkit-transform: scale3d(.4, .4, .4);
+              transform: scale3d(.4, .4, .4);
+
+      opacity: 0;
+    }
+
+    50% {
+      opacity: .5;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes zoomIn {
+    0% {
+      -webkit-transform: scale3d(.4, .4, .4);
+              transform: scale3d(.4, .4, .4);
+
+      opacity: 0;
+    }
+
+    50% {
+      opacity: .5;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .zoomIn {
+    -webkit-animation-name: zoomIn;
+            animation-name: zoomIn;
+  }
+
+}

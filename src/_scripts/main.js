@@ -25,6 +25,8 @@ import Carousel from '../_modules/carousel/carousel';
 import Navigation from '../_modules/navigation/navigation';
 import Help from '../_modules/help/help';
 import Masonry from '../_modules/masonry/masonry';
+import Gotop from '../_modules/goTop/goTop';
+import Scrolldownicon from '../_modules/scrollDownIcon/scrollDownIcon';
 
 $(() => {
 
@@ -36,7 +38,9 @@ $(() => {
   new Carousel();
   new Navigation();
   new Help();
+  new Gotop();
   new Masonry();
   new Accordion();
+  new Scrolldownicon();
 
 });

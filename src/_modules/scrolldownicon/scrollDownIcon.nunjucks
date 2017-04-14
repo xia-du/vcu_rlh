@@ -1,0 +1,15 @@
+{% macro content(spec) %}
+
+{% set spec = spec or {} %}
+{% set _class = spec.class or '' %}
+
+<div class="scroll-down-icon">
+  <div class="arrow-container animated fadeInDown">
+    <div class="arrow-2">
+      <i class="fa fa-angle-down"></i>
+    </div>
+    <div class="arrow-1 animated hinge infinite zoomIn"></div>
+  </div>
+</div>
+
+{% endmacro %}

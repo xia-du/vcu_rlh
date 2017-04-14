@@ -1,0 +1,57 @@
+// gotop styles
+
+.fab-container {
+  position: fixed;
+  z-index: 20000;
+  right: 0;
+  bottom: -72px; // margin + height
+
+  margin: 1em;
+}
+
+.fab {
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+
+  cursor: pointer;
+  transition: .3s;
+
+  border-radius: 50%;
+  box-shadow: 0 1.5px 4px rgba(0, 0, 0, .24), 0 1.5px 6px rgba(0, 0, 0, .12);
+  &:before {
+    font: 400 15px Roboto;
+
+    position: absolute;
+    top: 16px;
+    right: 100%;
+
+    visibility: hidden;
+
+    padding: 4px 8px;
+
+    content: attr(tooltip);
+    transition: .3s;
+    white-space: nowrap;
+
+    opacity: 0;
+    color: white;
+    border-radius: 2px;
+    background: #595959;
+  }
+  &:hover {
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .20), 0 3px 8px rgba(0, 0, 0, .12);
+    &:before {
+      right: 110%;
+
+      visibility: visible;
+
+      opacity: 1;
+    }
+  }
+}
+
+.top {
+  background: $brand-primary url('http://goo.gl/BDOwrt') center no-repeat;
+}

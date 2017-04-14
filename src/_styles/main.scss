@@ -1,6 +1,7 @@
 // Libs
 // Bootstrap
 // Using customized bootstrap
+$icon-font-path: '../fonts/';
 @import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
 // Slick carousel
 $slick-font-path: '../fonts/';
@@ -29,6 +30,8 @@ $slick-loader-path: '../images/';
 @import '../_modules/modal/modal';
 @import '../_modules/masonry/masonry';
 @import '../_modules/accordion/accordion';
+@import '../_modules/goTop/goTop';
+@import '../_modules/scrollDownIcon/scrollDownIcon';
 
 // Page CSS
 @import 'home';

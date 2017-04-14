@@ -1,3 +1,6 @@
+{% import "_modules/goTop/goTop.nunjucks" as gotop %}
+{% import "_modules/scrollDownIcon/scrollDownIcon.nunjucks" as scrollDownIcon %}
+
 {# Custom Configuration #}
 {% block config %}
   {# Setup site's base URL to match the "baseUrl" key within `package.json` #}
@@ -45,6 +48,10 @@
       You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
     </p>
     <![endif]-->
+
+    {{gotop.content({})}}
+
+    {{scrollDownIcon.content({})}}
 
     {% block header %}{% endblock %}
 
