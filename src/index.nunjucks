@@ -2,7 +2,7 @@
 
 {% block config %}
   {# Correct base url pathing for this page #}
-  {% set baseUrl = '../' %}
+  {% set baseUrl = './' %}
 {% endblock %}
 
 {% import "_modules/link/link.nunjucks" as link %}
